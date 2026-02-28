@@ -1,0 +1,20 @@
+.pros {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  gap: 30px;
+  border: none;
+  width: 249px;
+  min-height: 161px;
+}
+.pros h3 {
+  margin-top: 10px;
+  font-size: 20px;
+}
+.pros .outer {
+  background-color: black;
+}
+.pros .outer span {
+  color: white;
+}

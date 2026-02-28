@@ -1,0 +1,161 @@
+.registration {
+  width: 100%;
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.registration-wrap {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  background: #fff;
+  padding: 40px 60px;
+  border-radius: 20px;
+}
+
+.registration-left img {
+  height: 600px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.registration-right {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 360px;
+}
+
+.registration-right h2 {
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  color: #000;
+  margin-top: -30px;
+  margin-bottom: 10px;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.registration-right input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 12px 0;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.registration-right input:focus {
+  border-color: #db4444;
+}
+
+.red-btn {
+  background-color: #db4444;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.google-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.login-text {
+  text-align: center;
+}
+
+.login-text a {
+  color: #db4444;
+  text-decoration: none;
+  border-bottom: 1px solid #db4444;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 300px;
+  animation: modalAnim 0.3s ease-out;
+}
+
+.success-icon {
+  width: 60px;
+  height: 60px;
+  background: #00ff66;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin: 0 auto 20px;
+}
+
+@keyframes modalAnim {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1206px) {
+  .registration-left img {
+    height: 400px;
+  }
+  .registration-wrap {
+    gap: 50px;
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .registration-wrap {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+  .registration-left img {
+    display: none;
+  }
+}

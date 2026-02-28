@@ -1,0 +1,56 @@
+.img-card {
+  height: 100%;
+  width: 100%;
+}
+.items-card {
+  width: 270px;
+}
+.discount-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 20px;
+}
+.hearts {
+  display: flex;
+  gap: 170px;
+}
+.trash {
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
+.section-title-heart {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.section-title-heart button {
+  padding: 13px;
+  background-color: white;
+  border: 1px solid #00000080;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 1s all ease;
+}
+.section-title-heart button:hover {
+  background-color: rgb(158, 158, 158);
+  border: none;
+  color: white;
+}
+.middle {
+  margin-top: 200px;
+  margin-bottom: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media screen and (max-width: 571px) {
+  .discount-wrap {
+    justify-content: center;
+  }
+}

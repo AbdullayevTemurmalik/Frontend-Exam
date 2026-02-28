@@ -1,0 +1,11 @@
+.not-found-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  width: 100vh;
+}
+.not-found-wrap h1 {
+  font-size: 55px;
+}

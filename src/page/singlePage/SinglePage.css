@@ -1,0 +1,130 @@
+.single-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 50px;
+  padding: 0 5px;
+}
+.single-left img {
+  height: 100%;
+  background-color: #fafafa;
+  width: 100%;
+  border-radius: 15px;
+}
+.single-left {
+  height: 600px;
+  width: 60%;
+  border-radius: 15px;
+}
+.single-right {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+.single-right h2 {
+  margin-bottom: 20px;
+}
+.single-price {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+.single-description {
+  padding: 0 0 5px 0;
+  width: 100%;
+  border-bottom: 1px solid gray;
+}
+.counter {
+  width: 100%;
+  margin: 10px 0;
+  border: 1px solid gray;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.counter span {
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.non-active-btn-right {
+  border-left: 1px solid gray;
+}
+.non-active-btn-left {
+  border-right: 1px solid gray;
+}
+.active-btn-left,
+.active-btn-right {
+  background-color: #db4444;
+  color: white;
+}
+.active-btn-left {
+  border-radius: 8px 0 0px 8px;
+}
+.active-btn-right {
+  border-radius: 0px 8px 8px 0px;
+}
+.btn-add {
+  padding: 10px;
+  background-color: #db4444;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.btn-add:hover {
+  background-color: #c96565;
+}
+.priorities {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid gray;
+  padding: 0 5px;
+  border-radius: 10px;
+}
+.priority-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid gray;
+}
+.priority-item span {
+  font-size: 25px;
+}
+.single-exit {
+  align-self: self-start;
+  cursor: pointer;
+  font-size: 20px;
+}
+@media screen and (max-width: 933px) {
+  .single-wrap {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .single-left {
+    width: 80%;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .single-left {
+    width: 80%;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 462px) {
+  .single-left {
+    width: 80%;
+    height: 350px;
+  }
+}

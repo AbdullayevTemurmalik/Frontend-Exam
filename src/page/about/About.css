@@ -1,0 +1,180 @@
+.story-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+}
+.story-left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.about-wrap {
+  margin-top: 40px;
+}
+.story-right,
+.story-right img {
+  border-radius: 15px;
+}
+.story-left h2 {
+  font-weight: 600;
+  font-size: 54px;
+  line-height: 64px;
+  letter-spacing: 6%;
+}
+.story-left p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+}
+.statistics {
+  margin-top: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.card-statistics {
+  padding: 30px 50px;
+  border-radius: 15px;
+  min-width: 239px;
+  max-width: 239px;
+  cursor: pointer;
+}
+.card-statistics div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.card-statistics span {
+  font-size: 40px;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.card-statistics h3 {
+  font-size: 28px;
+}
+.card-statistics p {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+}
+.active {
+  background-color: #db4444;
+  color: white;
+}
+.outer span {
+  color: black;
+}
+.active .outer {
+  background-color: white;
+}
+.non-active {
+  border: 1px solid #0000004d;
+  color: black;
+}
+.non-active .outer {
+  background-color: black;
+}
+.non-active .outer span {
+  color: white;
+}
+
+.newSwip {
+  width: 100%;
+  height: 100%;
+}
+
+.newSwip .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  width: 370px;
+  height: 564px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.workers {
+  margin-top: 140px;
+}
+.newSwip .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #f5f5f5;
+  border-radius: 15px 15px 0 0;
+}
+.slider-top {
+  height: 65%;
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+}
+.newSwip .swiper-slide img:hover {
+  transform: scale(1.04);
+  border-radius: 15px;
+}
+.slider-bottom {
+  padding: 25px 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background-color: white;
+}
+
+@media screen and (max-width: 1108px) {
+  .story-right img {
+    width: 550px;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 952px) {
+  .story-left p {
+    font-size: 13px;
+  }
+  .story-left h2 {
+    font-size: 40px;
+  }
+  .story-right img {
+    width: 450px;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 847px) {
+  .statistics {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 784px) {
+  .story-left p {
+    font-size: 13px;
+  }
+  .story-left h2 {
+    font-size: 30px;
+  }
+  .story-right img {
+    width: 400px;
+    height: 350px;
+  }
+}
+@media screen and (max-width: 751px) {
+  .story-wrap {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 418px) {
+  .story-right img {
+    width: 310px;
+    height: 260px;
+  }
+}
