@@ -1,1 +1,1 @@
-Exclusive figmani UI|UX larini va kodlarini korishingiz mumkun !
+Exclusive figmani UI|UX larini va kodlarini korishingiz mumkun 
