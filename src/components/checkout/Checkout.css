@@ -1,0 +1,168 @@
+.checkout-page {
+  padding: 80px 0;
+}
+
+.breadcrumb {
+  margin-bottom: 80px;
+  color: #7d7d7d;
+  font-size: 14px;
+}
+
+.breadcrumb span {
+  color: #000;
+}
+
+.checkout-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+}
+
+.billing-section {
+  flex: 1;
+}
+
+.billing-section h1 {
+  font-size: 36px;
+  margin-bottom: 48px;
+  font-weight: 500;
+}
+
+.billing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-field label {
+  color: #7d7d7d;
+  font-size: 16px;
+}
+
+.input-field input {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 13px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.save-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.save-info input {
+  width: 20px;
+  height: 20px;
+  accent-color: #db4444;
+}
+
+.order-summary-section {
+  width: 420px;
+}
+
+.summary-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.prod-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.prod-info img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.calculation-box hr {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.total-amount {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.payment-options {
+  margin: 32px 0;
+}
+
+.pay-method {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.radio-label input {
+  width: 20px;
+  height: 20px;
+  accent-color: black;
+}
+
+.payment-logos {
+  display: flex;
+  gap: 8px;
+}
+
+.payment-logos img {
+  height: 18px;
+}
+
+.coupon-area {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.coupon-area input {
+  flex: 1;
+  padding: 13px;
+  border: 1px solid black;
+  border-radius: 4px;
+  outline: none;
+}
+
+.place-order-btn {
+  width: 190px;
+  height: 56px;
+  background-color: #db4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.place-order-btn:hover {
+  background-color: #e04f4f;
+}

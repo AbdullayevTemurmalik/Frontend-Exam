@@ -1,14 +1,16 @@
 import { BiTrash } from "react-icons/bi";
 import "./Basket.css";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { deleteItem } from "../../redux/basketSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 const Basket = () => {
   const arr = useSelector((item) => item.basket.value);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const total = arr.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  if (arr.length == 0) {
+
+  if (arr.length === 0) {
     return (
       <div className="container middle">
         <h2>You do not have any products on basket</h2>
@@ -18,6 +20,7 @@ const Basket = () => {
       </div>
     );
   }
+
   return (
     <div className="container">
       <table className="site-table">
@@ -56,9 +59,7 @@ const Basket = () => {
         <button>
           <Link to={"/"}>Return to shop</Link>
         </button>
-        <button onClick={() => alert("Uzur, bu yerga ulgura ololmadim :)")}>
-          Update cart
-        </button>
+        <button onClick={() => navigate("/checkout")}>Update cart</button>
       </div>
       <div className="count-total">
         <h2>Cart Total</h2>

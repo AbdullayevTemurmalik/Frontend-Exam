@@ -22,19 +22,20 @@
   height: 40px;
   background-color: #db4444;
   border-radius: 4px;
-  margin-top: 45px;
 }
 
 .flash-sales-row {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 80px;
+  flex-wrap: wrap;
 }
 
 .flash-sales-row h2 {
   font-size: 36px;
   font-weight: 600;
   letter-spacing: 0.04em;
+  margin: 0;
 }
 
 .countdown-timer {
@@ -46,11 +47,13 @@
 .timer-box {
   display: flex;
   flex-direction: column;
+  min-width: 45px;
 }
 
 .timer-box span {
   font-size: 12px;
   font-weight: 500;
+  color: black;
 }
 
 .timer-box b {
@@ -68,6 +71,7 @@
 .custom-nav-wrapper {
   display: flex;
   gap: 8px;
+  margin-left: auto;
 }
 
 .custom-prev,
@@ -211,4 +215,28 @@
 .swiper-button-next,
 .swiper-button-prev {
   display: none !important;
+}
+
+@media (max-width: 768px) {
+  .flash-sales-row {
+    gap: 20px;
+  }
+
+  .flash-sales-row h2 {
+    font-size: 24px;
+  }
+
+  .countdown-timer {
+    gap: 10px;
+  }
+
+  .timer-box b {
+    font-size: 24px;
+  }
+
+  .custom-nav-wrapper {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
 }
