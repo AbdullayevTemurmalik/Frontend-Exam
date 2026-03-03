@@ -10,7 +10,7 @@ import {
   BiXCircle,
   BiStar,
 } from "react-icons/bi";
-import { MdMenu } from "react-icons/md";
+import { MdMenu, MdLocationOn } from "react-icons/md";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -36,6 +36,29 @@ const Header = () => {
 
   return (
     <header className="site-header">
+      <div className="top-bar">
+        <nav className="section_1">
+          
+          <div className="others">
+          
+            <div className="lang-switcher">
+              <div className="lan">
+                <img src="https://flagcdn.com/w20/uz.png" alt="uzb" />
+                <p>Oʻzbekcha</p>
+              </div>
+              <div className="lan language">
+                <img src="https://flagcdn.com/w20/ru.png" alt="rus" />
+                <p>Русский</p>
+              </div>
+              <div className="lan language">
+                <img src="https://flagcdn.com/w20/gb.png" alt="eng" />
+                <p>English</p>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
       <div className="container">
         <div className="header-wrap">
           <div className="logo-wrap">
