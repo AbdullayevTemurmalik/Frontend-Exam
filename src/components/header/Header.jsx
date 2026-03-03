@@ -14,7 +14,7 @@ import { MdMenu, MdLocationOn } from "react-icons/md";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const Header = () => {
+const Header = ({ cartCount = 0, wishlistCount = 0 }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -38,9 +38,7 @@ const Header = () => {
     <header className="site-header">
       <div className="top-bar">
         <nav className="section_1">
-          
           <div className="others">
-          
             <div className="lang-switcher">
               <div className="lan">
                 <img src="https://flagcdn.com/w20/uz.png" alt="uzb" />
@@ -111,15 +109,20 @@ const Header = () => {
             </div>
 
             <div className="product-action">
-              <Link to="/like">
+              <Link to="/like" className="icon-badge-wrapper">
                 <span className="heart">
                   <BiHeart />
                 </span>
+                {wishlistCount > 0 && (
+                  <span className="badge">{wishlistCount}</span>
+                )}
               </Link>
-              <Link to="/basket">
+
+              <Link to="/basket" className="icon-badge-wrapper">
                 <span className="basket">
                   <BiBasket />
                 </span>
+                {cartCount > 0 && <span className="badge">{cartCount}</span>}
               </Link>
 
               {isLoggedIn && (
