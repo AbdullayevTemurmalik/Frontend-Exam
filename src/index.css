@@ -5,6 +5,11 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 del {
   font-weight: 500;
   font-size: 16px;
@@ -49,10 +54,10 @@ a {
 }
 
 .container {
-  max-width: 1170px;
+  max-width: 1210px;
   width: 100%;
-  margin: auto;
-  padding: 0 10px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .disappear {
