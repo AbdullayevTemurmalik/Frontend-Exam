@@ -1,71 +1,48 @@
-import { GiBanana, GiClothes } from "react-icons/gi";
 import "./Categories.css";
-import { FaBorderAll } from "react-icons/fa";
-import { PiPhone } from "react-icons/pi";
-import { LuSofa } from "react-icons/lu";
-import { MdOutlineToys } from "react-icons/md";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { name } from "../../redux/filterSlice";
+import {
+  Smartphone,
+  Monitor,
+  Watch,
+  Camera,
+  Headphones,
+  Gamepad2,
+} from "lucide-react";
+
 const Categories = () => {
-  const dispatch = useDispatch();
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("Camera");
+
   const categories = [
-    {
-      name: "all",
-      icon: <FaBorderAll />,
-    },
-    {
-      name: "cloth",
-      icon: <GiClothes />,
-    },
-    {
-      name: "devices",
-      icon: <PiPhone />,
-    },
-    {
-      name: "furniture",
-      icon: <LuSofa />,
-    },
-    {
-      name: "toys",
-      icon: <MdOutlineToys />,
-    },
-    {
-      name: "food",
-      icon: <GiBanana />,
-    },
+    { name: "Phones", icon: <Smartphone size={40} strokeWidth={1.5} /> },
+    { name: "Computers", icon: <Monitor size={40} strokeWidth={1.5} /> },
+    { name: "SmartWatch", icon: <Watch size={40} strokeWidth={1.5} /> },
+    { name: "Camera", icon: <Camera size={40} strokeWidth={1.5} /> },
+    { name: "HeadPhones", icon: <Headphones size={40} strokeWidth={1.5} /> },
+    { name: "Gaming", icon: <Gamepad2 size={40} strokeWidth={1.5} /> },
   ];
+
   return (
-    <div className="container">
+    <div className="container categories-section">
       <div className="section-title">
         <span className="red-rectangle"></span>
         <p>Categories</p>
       </div>
-      <div className="sales-count-wrap">
+      <div className="browse-header">
         <h3>Browse By Category</h3>
       </div>
-      <div className="categories-wrap">
-        {categories.map((item, index) => {
-          return (
-            <div
-              key={index}
-              className={`category-item ${
-                activeCategory === item.name ? "active" : ""
-              }`}
-              onClick={() => {
-                setActiveCategory(item.name);
-                dispatch(name(item.name));
-              }}
-            >
-              <div>
-                <span className="huge-icon">{item.icon}</span>
-                <h3>{item.name}</h3>
-              </div>
-            </div>
-          );
-        })}
+      <div className="categories-grid">
+        {categories.map((item, index) => (
+          <div
+            key={index}
+            className={`category-box ${activeCategory === item.name ? "active" : ""}`}
+            onClick={() => setActiveCategory(item.name)}
+          >
+            <span className="category-icon">{item.icon}</span>
+            <p>{item.name}</p>
+          </div>
+        ))}
       </div>
+      <hr className="section-divider" />
     </div>
   );
 };
