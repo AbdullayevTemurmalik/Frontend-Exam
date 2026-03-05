@@ -81,19 +81,19 @@ const Speaker = () => {
           {exploreItems.map((item) => {
             const isLiked = wishlistItems.some((liked) => liked.id === item.id);
             return (
-              <div key={item.id} className="explore-card">
-                <div className="explore-card-top">
+              <div key={item.id} className="card">
+                <div className="card-top">
                   {item.isNew && <span className="new-badge">NEW</span>}
                   <Link to={`/product/${item.id}`}>
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="explore-img"
+                      className="product-image"
                     />
                   </Link>
-                  <div className="explore-icons">
+                  <div className="card-icons">
                     <span
-                      className="icon-circle"
+                      className="icon-bg"
                       onClick={() => handleToggleLike(item)}
                     >
                       <Heart
@@ -102,23 +102,22 @@ const Speaker = () => {
                         color={isLiked ? "#db4444" : "black"}
                       />
                     </span>
-                    <Link to={`/product/${item.id}`} className="icon-circle">
+                    <Link to={`/product/${item.id}`} className="icon-bg">
                       <Eye size={20} color="black" />
                     </Link>
                   </div>
                   <button
-                    className="explore-add-btn"
+                    className="add-to-cart-bar"
                     onClick={() => handleAddToCart(item)}
                   >
-                    <ShoppingCart size={18} style={{ marginRight: "8px" }} />{" "}
-                    Add To Cart
+                    <ShoppingCart size={18} /> Add To Cart
                   </button>
                 </div>
-                <div className="explore-card-bottom">
+                <div className="card-bottom">
                   <h3>{item.name}</h3>
-                  <div className="explore-info">
-                    <span className="explore-price">${item.price}</span>
-                    <div className="explore-rating">
+                  <div className="price-row">
+                    <span className="current-price">${item.price}</span>
+                    <div className="rating-wrap">
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
@@ -127,17 +126,16 @@ const Speaker = () => {
                           color={i < 4 ? "#FFAD33" : "#D1D1D1"}
                         />
                       ))}
-                      <span className="rating-count">(35)</span>
+                      <span className="count">({item.ratingCount || 65})</span>
                     </div>
-                  </div>
-                  <div className="color-dots">
-                    <span className="dot black active"></span>
-                    <span className="dot red"></span>
                   </div>
                 </div>
               </div>
             );
           })}
+        </div>
+        <div className="view-all-footer">
+          <button className="red-btn">View All Products</button>
         </div>
       </section>
 
