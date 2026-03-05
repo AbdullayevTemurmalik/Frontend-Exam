@@ -1,80 +1,72 @@
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 15px;
-}
 .hero-wrap {
   display: flex;
   gap: 20px;
-  transition: 2s all ease;
   padding: 0 10px;
+  margin-top: 40px;
 }
-.swiper-wrapper {
-  width: 100%;
-  margin-top: 20px;
-}
-.swiper-wrapper-open-menu {
-  max-width: 80%;
-}
+
 .products-category-menu {
-  min-width: 18%;
-  border-right: 1px solid gray;
-  padding: 20px 16px 0 0;
-  opacity: 0;
+  min-width: 230px;
+  border-right: 1px solid #dbdbdb;
+  padding-right: 15px;
 }
-.products-category-menu {
-  opacity: 1;
-}
+
 .category-menu-list {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
+  list-style: none;
+  margin-top: 30px;
 }
 
-.category-menu-list li:hover {
-  text-decoration: underline;
-  color: rgb(110, 110, 110);
+.category-menu-list li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
 }
-.close-menu {
-  cursor: pointer;
+
+.swiper-wrapper-open-menu {
+  flex: 1;
+  min-width: 0;
+  margin-top: 30px;
+}
+
+.swiper {
+  width: 100%;
+  height: 344px;
+  border-radius: 4px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+  background: #808080 !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #db4444 !important;
+  border: 2px solid white;
 }
 
 @media screen and (max-width: 908px) {
-  .hero-wrap {
-    height: 500px;
+  .products-category-menu {
+    display: none;
+  }
+  .swiper-wrapper-open-menu {
+    max-width: 100%;
   }
 }
-@media screen and (max-width: 755px) {
-  .category-menu-list {
-    gap: 7px;
-  }
-}
+
 @media screen and (max-width: 644px) {
   .hero-wrap {
-    height: 350px;
-  }
-  .category-menu-list {
-    font-size: 15px;
-  }
-}
-@media screen and (max-width: 500px) {
-  .category-menu-list {
-    font-size: 13px;
+    height: 300px;
   }
 }

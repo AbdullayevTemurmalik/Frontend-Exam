@@ -9,8 +9,9 @@ import {
   BiShoppingBag,
   BiXCircle,
   BiStar,
+  BiChevronDown,
 } from "react-icons/bi";
-import { MdMenu, MdLocationOn } from "react-icons/md";
+import { MdMenu } from "react-icons/md";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -20,6 +21,8 @@ const Header = ({ cartCount = 0, wishlistCount = 0 }) => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState("English");
 
   useEffect(() => {
     const userStatus = localStorage.getItem("isLoggedIn") === "true";
@@ -34,27 +37,45 @@ const Header = ({ cartCount = 0, wishlistCount = 0 }) => {
     navigate("/register");
   };
 
+  const languages = ["English", "Oʻzbekcha", "Русский"];
+
   return (
     <header className="site-header">
       <div className="top-bar">
-        <nav className="section_1">
-          <div className="others">
-            <div className="lang-switcher">
-              <div className="lan">
-                <img src="https://flagcdn.com/w20/uz.png" alt="uzb" />
-                <p>Oʻzbekcha</p>
-              </div>
-              <div className="lan language">
-                <img src="https://flagcdn.com/w20/ru.png" alt="rus" />
-                <p>Русский</p>
-              </div>
-              <div className="lan language">
-                <img src="https://flagcdn.com/w20/gb.png" alt="eng" />
-                <p>English</p>
-              </div>
-            </div>
+        <div className="container top-bar-content">
+          <div className="promo-section">
+            <p>
+              Summer Sale For All Swim Suits And Free Express Delivery - OFF
+              50%!
+              <Link to="/shop" className="shop-now">
+                ShopNow
+              </Link>
+            </p>
           </div>
-        </nav>
+          <div
+            className="lang-dropdown"
+            onClick={() => setIsLangOpen(!isLangOpen)}
+          >
+            <div className="selected-lang">
+              {currentLang} <BiChevronDown />
+            </div>
+            {isLangOpen && (
+              <ul className="lang-list">
+                {languages.map((lang) => (
+                  <li
+                    key={lang}
+                    onClick={() => {
+                      setCurrentLang(lang);
+                      setIsLangOpen(false);
+                    }}
+                  >
+                    {lang}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
       </div>
 
       <div className="container">
@@ -139,7 +160,6 @@ const Header = ({ cartCount = 0, wishlistCount = 0 }) => {
                   >
                     <BiUser />
                   </span>
-
                   {isUserMenuOpen && (
                     <div className="user-dropdown-menu">
                       <Link

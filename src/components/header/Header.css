@@ -205,6 +205,75 @@
   cursor: pointer;
 }
 
+.top-bar-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.promo-section p {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.shop-now {
+  color: #fff;
+  font-weight: 600;
+  margin-left: 8px;
+  text-decoration: underline;
+}
+
+.lang-dropdown {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.selected-lang {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lang-list {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: white;
+  color: black;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 120px;
+  z-index: 2000;
+}
+
+.lang-list li {
+  padding: 8px 15px;
+  transition: 0.3s;
+}
+
+.lang-list li:hover {
+  background-color: #f5f5f5;
+  color: #db4444;
+}
+
+@media only screen and (max-width: 900px) {
+  .top-bar-content {
+    flex-direction: column;
+    padding: 5px 0;
+  }
+  .lang-dropdown {
+    position: static;
+    margin-top: 5px;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .section_1 {
     flex-direction: column;
