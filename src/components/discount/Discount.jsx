@@ -10,6 +10,7 @@ import { BsEye, BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { FaHeart, FaStar } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { addLike } from "../../redux/likeSlice";
+import { addToBasket } from "../../redux/basketSlice";
 import { Link } from "react-router-dom";
 
 const Discount = () => {
@@ -21,10 +22,10 @@ const Discount = () => {
   const items = products.filter((item) => Boolean(item.discountPrice) === true);
 
   const [timeLeft, setTimeLeft] = useState({
-    days: "03",
-    hours: "23",
-    minutes: "19",
-    seconds: "56",
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
   });
 
   useEffect(() => {
@@ -95,7 +96,7 @@ const Discount = () => {
 
       <div className="swiper-wrap">
         <Swiper
-          slidesPerView={4.5}
+          slidesPerView={4}
           spaceBetween={30}
           onInit={(swiper) => {
             swiper.params.navigation.prevEl = prevRef.current;
@@ -105,10 +106,10 @@ const Discount = () => {
           }}
           modules={[Navigation]}
           breakpoints={{
-            0: { slidesPerView: 1.3 },
-            480: { slidesPerView: 2.3 },
-            768: { slidesPerView: 3.3 },
-            1024: { slidesPerView: 4.5 },
+            0: { slidesPerView: 1.3, spaceBetween: 15 },
+            480: { slidesPerView: 2.2, spaceBetween: 20 },
+            768: { slidesPerView: 3, spaceBetween: 25 },
+            1024: { slidesPerView: 4, spaceBetween: 30 },
           }}
         >
           {items.map((item) => (
@@ -138,9 +139,14 @@ const Discount = () => {
                     </Link>
                   </div>
                   <img src={item.image} alt={item.name} />
-                  <Link to={`/product/${item.id}`} className="add-to-cart-btn">
+                  <button
+                    className="add-to-cart-btn"
+                    onClick={() =>
+                      dispatch(addToBasket({ ...item, quantity: 1 }))
+                    }
+                  >
                     Add To Cart
-                  </Link>
+                  </button>
                 </div>
                 <div className="card-bottom">
                   <h3>{item.name}</h3>

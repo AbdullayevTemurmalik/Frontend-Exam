@@ -1,74 +1,212 @@
-.basket-img {
-  width: 65px;
-  height: 60px;
+.basket-page {
+  margin-top: 80px;
+  margin-bottom: 140px;
 }
+
+.breadcrumb {
+  margin-bottom: 80px;
+  color: #00000080;
+}
+
+.breadcrumb span {
+  color: #000;
+}
+
 .site-table {
   width: 100%;
-}
-.table-head th {
-  text-align: start;
-  padding: 20px 5px;
-  box-shadow: 0px 1px 13px 0px #0000000d;
-  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0 40px;
 }
 
-.basket-product {
+.site-table th {
+  text-align: left;
+  padding: 24px;
+  box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+  font-weight: 400;
+}
+
+.basket-row td {
+  padding: 24px;
+  box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+  background: #fff;
+}
+
+.product-info {
   display: flex;
-  gap: 30px;
   align-items: center;
-  margin-left: 10px;
+  gap: 20px;
 }
-.basket-product span {
-  color: red;
-  cursor: pointer;
+
+.product-info h3 {
+  font-size: 16px;
+  font-weight: 400;
 }
-.basket-card {
-  box-shadow: 0px 1px 13px 0px #0000000d;
-  border-radius: 10px;
-}
-.count-total {
-  margin-top: 50px;
-  border: 1.5px solid #000000;
+
+.quantity-control {
+  width: 72px;
+  height: 44px;
+  border: 1.5px solid rgba(0, 0, 0, 0.4);
   border-radius: 4px;
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  background: white;
+}
+
+.qty-num {
+  font-size: 16px;
+  color: black;
+}
+
+.qty-arrows {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-}
-.subtotal {
-  display: flex;
-  justify-content: space-between;
-}
-.return-btn {
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-}
-.return-btn button {
-  background-color: white;
-  border: 1px solid #00000080;
-  padding: 10px;
-  border-radius: 4px;
-  font-size: 15px;
-  cursor: pointer;
+  justify-content: center;
+  gap: 2px;
 }
 
-.total-wrap {
+.qty-arrow {
+  cursor: pointer;
+  color: black;
+  transition: 0.2s;
+}
+
+.qty-arrow:hover {
+  color: #db4444;
+}
+
+.img-container {
+  position: relative;
+  width: 54px;
+  height: 54px;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.remove-btn {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 18px;
+  height: 18px;
+  background: #db4444;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: 0.2s;
+}
+
+.remove-btn:hover {
+  transform: scale(1.1);
+}
+
+.basket-actions {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 80px;
 }
-@media screen and (max-width: 472px) {
-  .basket-img {
-    width: 45px;
-    height: 40px;
+
+.outline-btn {
+  padding: 16px 48px;
+  border: 1px solid #00000080;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.outline-btn:hover {
+  background: #f5f5f5;
+}
+
+.basket-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.coupon-box {
+  display: flex;
+  gap: 16px;
+}
+
+.coupon-box input {
+  padding: 16px 24px;
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 300px;
+  outline: none;
+}
+
+.red-btn {
+  padding: 16px 48px;
+  background: #db4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.red-btn:hover {
+  background: #e03a3a;
+}
+
+.cart-total-card {
+  width: 470px;
+  border: 1.5px solid black;
+  padding: 32px 24px;
+  border-radius: 4px;
+}
+
+.cart-total-card h3 {
+  margin-bottom: 24px;
+  font-size: 20px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #0000004d;
+}
+
+.total-row.final {
+  border-bottom: none;
+  margin-bottom: 16px;
+}
+
+.checkout-btn {
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .basket-footer {
+    flex-direction: column;
+    gap: 40px;
   }
-  .basket-product {
-    gap: 15px;
+  .cart-total-card {
+    width: 100%;
   }
-  .basket-product h3 {
-    font-size: 15px;
+  .coupon-box {
+    width: 100%;
+    flex-direction: column;
   }
-  .table-head th {
-    padding: 10px 0;
+  .coupon-box input {
+    width: 100%;
   }
 }

@@ -45,7 +45,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Tugmani yashirish uchun */
+  overflow: hidden;
 }
 
 .product-image {
@@ -54,10 +54,10 @@
   object-fit: contain;
 }
 
-/* HOVER EFFEKTI */
+
 .add-to-cart-btn {
   position: absolute;
-  bottom: -50px; /* Dastlab ko'rinmaydi */
+  bottom: -50px; 
   left: 0;
   width: 100%;
   height: 40px;
@@ -73,7 +73,7 @@
 }
 
 .card-top:hover .add-to-cart-btn {
-  bottom: 0; /* Hover bo'lganda ko'tariladi */
+  bottom: 0; 
 }
 
 .card-icon-btn-wrap {

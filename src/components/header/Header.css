@@ -6,125 +6,90 @@
 .top-bar {
   background-color: #000;
   color: #fff;
-  padding: 10px 0;
-  font-size: 14px;
+  padding: 12px 0;
 }
 
-.section_1 {
-  max-width: 1200px;
-  margin: 0 auto;
+.top-bar-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  position: relative;
 }
 
-.local_area,
-.others,
-.lang-switcher {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.area {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.shipping p {
-  margin: 0;
-}
-
-.lan {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.lang-dropdown {
+  position: absolute;
+  right: 0;
   cursor: pointer;
-}
-
-.lan img {
-  width: 20px;
-  height: auto;
-  object-fit: cover;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 .header-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 .logo-wrap {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .logo {
   font-size: 24px;
   font-weight: 700;
-  margin: 0;
+  cursor: pointer;
+}
+
+.mobile-menu-trigger {
+  display: none;
+  cursor: pointer;
 }
 
 .header-navigation ul {
   display: flex;
   list-style: none;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
+  gap: 35px;
 }
 
 .header-navigation a {
   text-decoration: none;
   color: #000;
-  transition: 0.3s;
-}
-
-.header-navigation li:hover a {
-  color: #db4444;
+  font-size: 16px;
 }
 
 .header-action-wrap {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
 }
 
 .search-wrap {
   display: flex;
   align-items: center;
   background-color: #f5f5f5;
-  padding: 10px 15px;
-  border-radius: 8px;
+  padding: 7px 15px;
+  border-radius: 4px;
 }
 
 .search-wrap input {
   background: transparent;
   border: none;
   outline: none;
-  font-size: 14px;
+  width: 180px;
 }
 
 .product-action {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .icon-badge-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  text-decoration: none;
+  color: black;
 }
 
 .badge {
@@ -133,36 +98,21 @@
   right: -8px;
   background-color: #db4444;
   color: white;
-  font-size: 10px;
-  width: 16px;
-  height: 16px;
+  font-size: 11px;
+  min-width: 18px;
+  height: 18px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
+  border: 1.5px solid white;
 }
 
-.heart,
-.basket,
-.user {
-  font-size: 22px;
-  color: #000;
-  cursor: pointer;
+.user-btn {
+  padding: 4px;
+  border-radius: 50%;
   display: flex;
-  transition: 0.3s;
-}
-
-.heart:hover {
-  color: #db4444;
-  transform: scale(1.1);
-}
-.basket:hover {
-  color: #3b82f6;
-}
-
-.user-dropdown-container {
-  position: relative;
+  cursor: pointer;
 }
 
 .user-dropdown-menu {
@@ -176,7 +126,7 @@
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 15px;
   z-index: 1000;
 }
 
@@ -184,154 +134,82 @@
 .logout-btn {
   color: white;
   text-decoration: none;
-  font-size: 14px;
   display: flex;
   align-items: center;
   gap: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.user-dropdown-menu a:hover,
-.logout-btn:hover {
-  color: #db4444;
-}
-
-.menu {
-  display: none;
-  font-size: 25px;
-  cursor: pointer;
-}
-
-.top-bar-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.promo-section p {
-  margin: 0;
-  text-align: center;
   font-size: 14px;
 }
 
-.shop-now {
-  color: #fff;
-  font-weight: 600;
-  margin-left: 8px;
-  text-decoration: underline;
-}
-
-.lang-dropdown {
-  position: absolute;
-  right: 20px;
+.logout-btn {
+  background: none;
+  border: none;
   cursor: pointer;
-  user-select: none;
 }
 
-.selected-lang {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.lang-list {
-  position: absolute;
-  top: 30px;
-  right: 0;
-  background-color: white;
-  color: black;
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-  border-radius: 4px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 120px;
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 280px;
+  height: 100vh;
+  background: white;
   z-index: 2000;
+  transition: 0.4s ease;
+  padding: 20px;
 }
 
-.lang-list li {
-  padding: 8px 15px;
-  transition: 0.3s;
+.side-menu.open {
+  left: 0;
 }
 
-.lang-list li:hover {
-  background-color: #f5f5f5;
-  color: #db4444;
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1999;
 }
 
-@media only screen and (max-width: 900px) {
+.side-menu-links {
+  list-style: none;
+  margin-top: 40px;
+}
+
+.side-menu-links li {
+  margin-bottom: 25px;
+}
+
+.side-menu-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .header-navigation {
+    display: none;
+  }
+  .mobile-menu-trigger {
+    display: block;
+  }
+  .search-wrap input {
+    width: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-wrap {
+    display: none;
+  }
   .top-bar-content {
     flex-direction: column;
-    padding: 5px 0;
+    padding: 8px 0;
   }
   .lang-dropdown {
     position: static;
     margin-top: 5px;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .section_1 {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-  .shipping {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 700px) {
-  .header-navigation {
-    display: none;
-  }
-  .menu {
-    display: flex;
-  }
-  .logo-wrap {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .header-wrap {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  .header-action-wrap {
-    width: 100%;
-  }
-  .search-wrap {
-    flex-grow: 1;
-  }
-  .side-menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    background-color: white;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    z-index: 1001;
-  }
-  .exit {
-    font-size: 25px;
-    margin-bottom: 20px;
-    cursor: pointer;
-  }
-  .side-menu ul {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-  }
-  .disappear {
-    display: none;
   }
 }

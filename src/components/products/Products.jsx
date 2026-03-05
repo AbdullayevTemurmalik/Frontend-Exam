@@ -45,7 +45,7 @@ const Products = () => {
         {allItems.map((item) => (
           <div key={item.id} className="card">
             <div className="card-top">
-              {/* Rasmga bosganda Single Pagega o'tish */}
+           
               <Link to={`/product/${item.id}`}>
                 <img
                   className="product-image"
@@ -69,7 +69,7 @@ const Products = () => {
                 </span>
               </div>
 
-              {/* Hoverda chiquvchi tugma - Single Pagega o'tish uchun */}
+         
               <Link to={`/product/${item.id}`} className="add-to-cart-btn">
                 Add To Cart
               </Link>

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 const initialState = {
   value: [],
 };
@@ -20,8 +21,22 @@ export const basketSlice = createSlice({
     deleteItem: (state, action) => {
       state.value = state.value.filter((item) => item.id !== action.payload);
     },
+    incrementQuantity: (state, action) => {
+      const item = state.value.find((item) => item.id === action.payload);
+      if (item) {
+        item.quantity += 1;
+      }
+    },
+    decrementQuantity: (state, action) => {
+      const item = state.value.find((item) => item.id === action.payload);
+      if (item && item.quantity > 1) {
+        item.quantity -= 1;
+      }
+    },
   },
 });
 
-export const { addToBasket, deleteItem } = basketSlice.actions;
+export const { addToBasket, deleteItem, incrementQuantity, decrementQuantity } =
+  basketSlice.actions;
+
 export default basketSlice.reducer;

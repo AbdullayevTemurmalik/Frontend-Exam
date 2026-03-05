@@ -1,23 +1,32 @@
 import "./Header.css";
 import {
-  BiArrowToLeft,
-  BiBasket,
-  BiHeart,
-  BiSearch,
-  BiUser,
-  BiLogOut,
-  BiShoppingBag,
-  BiXCircle,
-  BiStar,
-  BiChevronDown,
-} from "react-icons/bi";
-import { MdMenu } from "react-icons/md";
+  ArrowLeft,
+  ShoppingCart,
+  Heart,
+  Search,
+  User,
+  LogOut,
+  ShoppingBag,
+  XCircle,
+  Star,
+  ChevronDown,
+  Menu,
+  X,
+} from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
-const Header = ({ cartCount = 0, wishlistCount = 0 }) => {
+const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const cartItems = useSelector((state) => state.basket.value);
+  const wishlistItems = useSelector((state) => state.like.value);
+
+  const cartCount = cartItems.length;
+  const wishlistCount = wishlistItems.length;
+
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,6 +36,7 @@ const Header = ({ cartCount = 0, wishlistCount = 0 }) => {
   useEffect(() => {
     const userStatus = localStorage.getItem("isLoggedIn") === "true";
     setIsLoggedIn(userStatus);
+    setIsSideMenuOpen(false);
   }, [location]);
 
   const handleLogout = () => {
@@ -57,7 +67,7 @@ const Header = ({ cartCount = 0, wishlistCount = 0 }) => {
             onClick={() => setIsLangOpen(!isLangOpen)}
           >
             <div className="selected-lang">
-              {currentLang} <BiChevronDown />
+              {currentLang} <ChevronDown size={16} />
             </div>
             {isLangOpen && (
               <ul className="lang-list">
@@ -81,28 +91,18 @@ const Header = ({ cartCount = 0, wishlistCount = 0 }) => {
       <div className="container">
         <div className="header-wrap">
           <div className="logo-wrap">
-            <h1
-              onClick={() => navigate("/")}
-              className="logo"
-              style={{ cursor: "pointer" }}
+            <span
+              className="mobile-menu-trigger"
+              onClick={() => setIsSideMenuOpen(true)}
             >
+              <Menu size={28} />
+            </span>
+            <h1 onClick={() => navigate("/")} className="logo">
               Exclusive
             </h1>
-            <span
-              onClick={() => setIsSideMenuOpen(true)}
-              className={!isSideMenuOpen ? "menu" : "disappear"}
-            >
-              <MdMenu />
-            </span>
           </div>
 
-          <nav className={!isSideMenuOpen ? "header-navigation" : "side-menu"}>
-            <span
-              onClick={() => setIsSideMenuOpen(false)}
-              className={isSideMenuOpen ? "exit" : "disappear"}
-            >
-              <BiArrowToLeft />
-            </span>
+          <nav className="header-navigation">
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -121,35 +121,59 @@ const Header = ({ cartCount = 0, wishlistCount = 0 }) => {
             </ul>
           </nav>
 
+          <div className={`side-menu ${isSideMenuOpen ? "open" : ""}`}>
+            <div className="side-menu-header">
+              <span onClick={() => setIsSideMenuOpen(false)}>
+                <X size={28} />
+              </span>
+            </div>
+            <ul className="side-menu-links">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              {!isLoggedIn && (
+                <li>
+                  <Link to="/register">Sign Up</Link>
+                </li>
+              )}
+            </ul>
+          </div>
+          {isSideMenuOpen && (
+            <div
+              className="menu-overlay"
+              onClick={() => setIsSideMenuOpen(false)}
+            ></div>
+          )}
+
           <div className="header-action-wrap">
             <div className="search-wrap">
               <input type="text" placeholder="What are you looking for?" />
-              <span>
-                <BiSearch />
-              </span>
+              <Search size={20} />
             </div>
 
             <div className="product-action">
               <Link to="/like" className="icon-badge-wrapper">
-                <span className="heart">
-                  <BiHeart />
-                </span>
+                <Heart size={24} />
                 {wishlistCount > 0 && (
                   <span className="badge">{wishlistCount}</span>
                 )}
               </Link>
 
               <Link to="/basket" className="icon-badge-wrapper">
-                <span className="basket">
-                  <BiBasket />
-                </span>
+                <ShoppingCart size={24} />
                 {cartCount > 0 && <span className="badge">{cartCount}</span>}
               </Link>
 
               {isLoggedIn && (
                 <div className="user-dropdown-container">
                   <span
-                    className="user"
+                    className="user-btn"
                     onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
                     style={{
                       backgroundColor: isUserMenuOpen
@@ -158,7 +182,7 @@ const Header = ({ cartCount = 0, wishlistCount = 0 }) => {
                       color: isUserMenuOpen ? "white" : "black",
                     }}
                   >
-                    <BiUser />
+                    <User size={24} />
                   </span>
                   {isUserMenuOpen && (
                     <div className="user-dropdown-menu">
@@ -166,28 +190,28 @@ const Header = ({ cartCount = 0, wishlistCount = 0 }) => {
                         to="/account"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        <BiUser /> Manage My Account
+                        <User size={20} /> Manage Account
                       </Link>
                       <Link
                         to="/orders"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        <BiShoppingBag /> My Order
+                        <ShoppingBag size={20} /> My Order
                       </Link>
                       <Link
                         to="/cancellations"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        <BiXCircle /> My Cancellations
+                        <XCircle size={20} /> Cancellations
                       </Link>
                       <Link
                         to="/reviews"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        <BiStar /> My Reviews
+                        <Star size={20} /> My Reviews
                       </Link>
                       <button onClick={handleLogout} className="logout-btn">
-                        <BiLogOut /> Logout
+                        <LogOut size={20} /> Logout
                       </button>
                     </div>
                   )}

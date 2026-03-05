@@ -22,7 +22,6 @@
   height: 40px;
   background-color: #db4444;
   border-radius: 4px;
-  margin-bottom: 54px;
 }
 
 .flash-sales-row {
@@ -95,6 +94,15 @@
   background: #ebebeb;
 }
 
+.swiper-wrap {
+  margin: 0 -15px;
+  padding: 0 15px;
+}
+
+.card {
+  width: 100%;
+}
+
 .card-top {
   position: relative;
   background-color: #f5f5f5;
@@ -108,6 +116,7 @@
 
 .card-top img {
   max-width: 170px;
+  max-height: 150px;
   object-fit: contain;
 }
 
@@ -129,6 +138,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  z-index: 10;
 }
 
 .icon-bg {
@@ -155,7 +165,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .card-top:hover .add-to-cart-btn {
@@ -169,6 +180,7 @@
 .card-bottom h3 {
   font-size: 16px;
   margin-bottom: 8px;
+  font-weight: 500;
 }
 
 .item-price {
@@ -211,33 +223,20 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  display: none !important;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {
   .flash-sales-row {
     gap: 20px;
   }
-
   .flash-sales-row h2 {
     font-size: 24px;
   }
-
   .countdown-timer {
     gap: 10px;
   }
-
   .timer-box b {
     font-size: 24px;
-  }
-
-  .custom-nav-wrapper {
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 10px;
   }
 }
