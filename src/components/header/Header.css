@@ -250,4 +250,7 @@
   .search-wrap {
     display: none;
   }
+  .promo-section p {
+    display: none;
+  }
 }
