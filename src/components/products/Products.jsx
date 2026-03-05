@@ -3,7 +3,7 @@ import products from "../../mock";
 import { useState } from "react";
 import { Heart, Eye, ShoppingCart } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { addLike } from "../../redux/likeSlice";
+import { addLike, deleteLike } from "../../redux/likeSlice";
 import { addToBasket } from "../../redux/basketSlice";
 import { Link } from "react-router-dom";
 
@@ -11,20 +11,23 @@ const Products = () => {
   const [state, setState] = useState(true);
   const dispatch = useDispatch();
   const category = useSelector((state) => state.filter.value);
+  const wishlistItems = useSelector((state) => state.like.value);
 
   const items = products.filter((item) => !item.discountPrice);
-  const selectedItems = state ? items.slice(0, 4) : items;
+  const selectedItems = state ? items.slice(0, 8) : items;
 
   const allItems =
     category === "all" || !category
       ? selectedItems
       : selectedItems.filter((item) => item.category === category);
 
-  const [likedItems, setLikedItems] = useState({});
-
-  const toggleLike = (item) => {
-    setLikedItems((prev) => ({ ...prev, [item.id]: !prev[item.id] }));
-    dispatch(addLike(item));
+  const handleToggleLike = (item) => {
+    const isExist = wishlistItems.some((liked) => liked.id === item.id);
+    if (isExist) {
+      dispatch(deleteLike(item.id));
+    } else {
+      dispatch(addLike(item));
+    }
   };
 
   return (
@@ -41,52 +44,60 @@ const Products = () => {
       </div>
 
       <div className="products-wrap">
-        {allItems.map((item) => (
-          <div key={item.id} className="card">
-            <div className="card-top">
-              <Link to={`/product/${item.id}`}>
-                <img
-                  className="product-image"
-                  src={item.image}
-                  alt={item.name}
-                />
-              </Link>
-
-              <div className="card-icon-btn-wrap">
-                <span className="icon-wrap" onClick={() => toggleLike(item)}>
-                  <Heart
-                    size={20}
-                    fill={likedItems[item.id] ? "#db4444" : "none"}
-                    color={likedItems[item.id] ? "#db4444" : "black"}
+        {allItems.map((item) => {
+          const isLiked = wishlistItems.some((liked) => liked.id === item.id);
+          return (
+            <div key={item.id} className="card">
+              <div className="card-top">
+                <Link to={`/product/${item.id}`}>
+                  <img
+                    className="product-image"
+                    src={item.image}
+                    alt={item.name}
                   />
-                </span>
-                <Link to={`/product/${item.id}`} className="icon-wrap">
-                  <Eye size={20} color="black" />
                 </Link>
+
+                <div className="card-icon-btn-wrap">
+                  <span
+                    className="icon-wrap"
+                    onClick={() => handleToggleLike(item)}
+                  >
+                    <Heart
+                      size={20}
+                      fill={isLiked ? "#db4444" : "none"}
+                      color={isLiked ? "#db4444" : "black"}
+                    />
+                  </span>
+                  <Link to={`/product/${item.id}`} className="icon-wrap">
+                    <Eye size={20} color="black" />
+                  </Link>
+                </div>
+
+                <button
+                  className="add-to-cart-btn"
+                  onClick={() =>
+                    dispatch(addToBasket({ ...item, quantity: 1 }))
+                  }
+                >
+                  <ShoppingCart size={18} style={{ marginRight: "8px" }} />
+                  Add To Cart
+                </button>
               </div>
 
-              <button
-                className="add-to-cart-btn"
-                onClick={() => dispatch(addToBasket({ ...item, quantity: 1 }))}
-              >
-                <ShoppingCart size={18} style={{ marginRight: "8px" }} />
-                Add To Cart
-              </button>
-            </div>
-
-            <div className="card-bottom">
-              <Link
-                to={`/product/${item.id}`}
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <h3>{item.name}</h3>
-              </Link>
-              <div className="item-price">
-                <p>${item.price}</p>
+              <div className="card-bottom">
+                <Link
+                  to={`/product/${item.id}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <h3>{item.name}</h3>
+                </Link>
+                <div className="item-price">
+                  <p>${item.price}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
