@@ -1,11 +1,10 @@
 import "./Products.css";
 import products from "../../mock";
 import { useState } from "react";
-import { BiHeart } from "react-icons/bi";
-import { BsEye } from "react-icons/bs";
-import { FaHeart } from "react-icons/fa6";
+import { Heart, Eye, ShoppingCart } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { addLike } from "../../redux/likeSlice";
+import { addToBasket } from "../../redux/basketSlice";
 import { Link } from "react-router-dom";
 
 const Products = () => {
@@ -32,10 +31,10 @@ const Products = () => {
     <section className="discount-section container">
       <div className="section-title">
         <span className="red-rectangle"></span>
-        <h3>Today’s</h3>
+        <h3>Our Products</h3>
       </div>
       <div className="discount-name product">
-        <h2>Flash Sales</h2>
+        <h2>Explore Our Products</h2>
         <button onClick={() => setState(!state)} className="red-btn">
           {state ? "View All" : "Close All"}
         </button>
@@ -45,7 +44,6 @@ const Products = () => {
         {allItems.map((item) => (
           <div key={item.id} className="card">
             <div className="card-top">
-           
               <Link to={`/product/${item.id}`}>
                 <img
                   className="product-image"
@@ -56,23 +54,24 @@ const Products = () => {
 
               <div className="card-icon-btn-wrap">
                 <span className="icon-wrap" onClick={() => toggleLike(item)}>
-                  {likedItems[item.id] ? (
-                    <FaHeart color="#db4444" />
-                  ) : (
-                    <BiHeart />
-                  )}
+                  <Heart
+                    size={20}
+                    fill={likedItems[item.id] ? "#db4444" : "none"}
+                    color={likedItems[item.id] ? "#db4444" : "black"}
+                  />
                 </span>
-                <span className="icon-wrap">
-                  <Link to={`/product/${item.id}`}>
-                    <BsEye color="black" />
-                  </Link>
-                </span>
+                <Link to={`/product/${item.id}`} className="icon-wrap">
+                  <Eye size={20} color="black" />
+                </Link>
               </div>
 
-         
-              <Link to={`/product/${item.id}`} className="add-to-cart-btn">
+              <button
+                className="add-to-cart-btn"
+                onClick={() => dispatch(addToBasket({ ...item, quantity: 1 }))}
+              >
+                <ShoppingCart size={18} style={{ marginRight: "8px" }} />
                 Add To Cart
-              </Link>
+              </button>
             </div>
 
             <div className="card-bottom">

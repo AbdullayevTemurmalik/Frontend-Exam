@@ -4,7 +4,7 @@
 
 .section-title {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: center;
   color: #db4444;
 }
@@ -14,7 +14,6 @@
   height: 40px;
   background-color: #db4444;
   border-radius: 4px;
-  margin-bottom: 54px;
 }
 
 .discount-name {
@@ -24,16 +23,22 @@
   margin: 20px 0 40px;
 }
 
+.discount-name h2 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
 .products-wrap {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 30px 10px;
 }
 
 .card {
   background-color: white;
-  width: 270px;
+  width: calc(25% - 15px);
+  min-width: 270px;
   margin-bottom: 30px;
 }
 
@@ -54,10 +59,9 @@
   object-fit: contain;
 }
 
-
 .add-to-cart-btn {
   position: absolute;
-  bottom: -50px; 
+  bottom: -50px;
   left: 0;
   width: 100%;
   height: 40px;
@@ -67,13 +71,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  font-weight: 500;
+  cursor: pointer;
   transition: 0.3s ease;
 }
 
 .card-top:hover .add-to-cart-btn {
-  bottom: 0; 
+  bottom: 0;
 }
 
 .card-icon-btn-wrap {
@@ -114,14 +117,29 @@
 .red-btn {
   background-color: #db4444;
   color: white;
-  padding: 10px 24px;
+  padding: 12px 32px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-@media screen and (max-width: 1180px) {
+@media screen and (max-width: 1200px) {
   .card {
-    width: 230px;
+    width: calc(33.33% - 20px);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .card {
+    width: calc(50% - 15px);
+  }
+  .products-wrap {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 100%;
   }
 }

@@ -74,7 +74,8 @@ const Header = () => {
                 {languages.map((lang) => (
                   <li
                     key={lang}
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.stopPropagation();
                       setCurrentLang(lang);
                       setIsLangOpen(false);
                     }}

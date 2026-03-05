@@ -5,7 +5,7 @@ import {
   decrementQuantity,
 } from "../../redux/basketSlice";
 import { Link, useNavigate } from "react-router-dom";
-import { X, ChevronUp, ChevronDown } from "lucide-react";
+import { X, ChevronUp, ChevronDown, ShoppingBag } from "lucide-react";
 import "./Basket.css";
 
 const Basket = () => {
@@ -16,11 +16,20 @@ const Basket = () => {
 
   if (arr.length === 0) {
     return (
-      <div className="container middle">
-        <h2>You do not have any products on basket</h2>
-        <button className="red-btn">
-          <Link to={"/"}>Return home</Link>
-        </button>
+      <div className="container empty-basket-wrap">
+        <div className="empty-content">
+          <div className="empty-icon-circle">
+            <ShoppingBag size={80} strokeWidth={1} />
+          </div>
+          <h2>Your Cart is Empty</h2>
+          <p>
+            Looks like you haven't added anything to your cart yet. <br />{" "}
+            Explore our best categories and find something you love!
+          </p>
+          <Link to="/" className="red-btn return-home-btn">
+            Go Shopping
+          </Link>
+        </div>
       </div>
     );
   }
@@ -92,7 +101,7 @@ const Basket = () => {
 
       <div className="basket-footer">
         <div className="coupon-box">
-          <input type="text" placeholder="Coupon Code" />
+          <input className='inputid' type="text" placeholder="Coupon Code" />
           <button className="red-btn">Apply Coupon</button>
         </div>
 

@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Speaker.css";
 import products from "../../mock";
-import { BiHeart } from "react-icons/bi";
-import { BsEye } from "react-icons/bs";
-import { FaStar } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { addLike } from "../../redux/likeSlice";
+import { Heart, Eye, Star, ShoppingCart } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { addLike, deleteLike } from "../../redux/likeSlice";
+import { addToBasket } from "../../redux/basketSlice";
 import { Link } from "react-router-dom";
 
 const Speaker = () => {
   const dispatch = useDispatch();
+  const wishlistItems = useSelector((state) => state.like.value);
+  const cartItems = useSelector((state) => state.basket.value);
+
   const exploreItems = products.slice(0, 8);
   const images = {
     main: "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=2070",
@@ -20,6 +22,22 @@ const Speaker = () => {
       "https://images.unsplash.com/photo-1589121817094-998411c9bc4b?q=80&w=2070",
     perfume:
       "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1964",
+  };
+
+  const handleToggleLike = (item) => {
+    const isExist = wishlistItems.some((liked) => liked.id === item.id);
+    if (isExist) {
+      dispatch(deleteLike(item.id));
+    } else {
+      dispatch(addLike(item));
+    }
+  };
+
+  const handleAddToCart = (item) => {
+    const isExist = cartItems.some((cartItem) => cartItem.id === item.id);
+    if (!isExist) {
+      dispatch(addToBasket({ ...item, quantity: 1 }));
+    }
   };
 
   return (
@@ -60,56 +78,66 @@ const Speaker = () => {
           <h2>Explore Our Products</h2>
         </div>
         <div className="explore-grid">
-          {exploreItems.map((item) => (
-            <div key={item.id} className="explore-card">
-              <div className="explore-card-top">
-                {item.isNew && <span className="new-badge">NEW</span>}
-                <Link to={`/product/${item.id}`}>
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="explore-img"
-                  />
-                </Link>
-                <div className="explore-icons">
-                  <span
-                    className="icon-circle"
-                    onClick={() => dispatch(addLike(item))}
-                  >
-                    <BiHeart />
-                  </span>
-                  <span className="icon-circle">
-                    <Link to={`/product/${item.id}`}>
-                      <BsEye color="black" />
-                    </Link>
-                  </span>
-                </div>
-                <Link to={`/product/${item.id}`} className="explore-add-btn">
-                  Add To Cart
-                </Link>
-              </div>
-              <div className="explore-card-bottom">
-                <h3>{item.name}</h3>
-                <div className="explore-info">
-                  <span className="explore-price">${item.price}</span>
-                  <div className="explore-rating">
-                    {[...Array(5)].map((_, i) => (
-                      <FaStar
-                        key={i}
-                        color={i < 4 ? "#FFAD33" : "#D1D1D1"}
-                        size={14}
+          {exploreItems.map((item) => {
+            const isLiked = wishlistItems.some((liked) => liked.id === item.id);
+            return (
+              <div key={item.id} className="explore-card">
+                <div className="explore-card-top">
+                  {item.isNew && <span className="new-badge">NEW</span>}
+                  <Link to={`/product/${item.id}`}>
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="explore-img"
+                    />
+                  </Link>
+                  <div className="explore-icons">
+                    <span
+                      className="icon-circle"
+                      onClick={() => handleToggleLike(item)}
+                    >
+                      <Heart
+                        size={20}
+                        fill={isLiked ? "#db4444" : "none"}
+                        color={isLiked ? "#db4444" : "black"}
                       />
-                    ))}
-                    <span className="rating-count">(35)</span>
+                    </span>
+                    <Link to={`/product/${item.id}`} className="icon-circle">
+                      <Eye size={20} color="black" />
+                    </Link>
+                  </div>
+                  <button
+                    className="explore-add-btn"
+                    onClick={() => handleAddToCart(item)}
+                  >
+                    <ShoppingCart size={18} style={{ marginRight: "8px" }} />{" "}
+                    Add To Cart
+                  </button>
+                </div>
+                <div className="explore-card-bottom">
+                  <h3>{item.name}</h3>
+                  <div className="explore-info">
+                    <span className="explore-price">${item.price}</span>
+                    <div className="explore-rating">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          size={14}
+                          fill={i < 4 ? "#FFAD33" : "none"}
+                          color={i < 4 ? "#FFAD33" : "#D1D1D1"}
+                        />
+                      ))}
+                      <span className="rating-count">(35)</span>
+                    </div>
+                  </div>
+                  <div className="color-dots">
+                    <span className="dot black active"></span>
+                    <span className="dot red"></span>
                   </div>
                 </div>
-                <div className="color-dots">
-                  <span className="dot black active"></span>
-                  <span className="dot red"></span>
-                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

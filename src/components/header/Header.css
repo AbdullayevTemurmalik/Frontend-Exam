@@ -16,10 +16,54 @@
   position: relative;
 }
 
+.promo-section p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.shop-now {
+  color: #fff;
+  margin-left: 8px;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 .lang-dropdown {
   position: absolute;
   right: 0;
   cursor: pointer;
+}
+
+.selected-lang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.lang-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 10px;
+  background-color: #fff;
+  color: #000;
+  list-style: none;
+  padding: 8px 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 120px;
+  z-index: 3000;
+}
+
+.lang-list li {
+  padding: 10px 20px;
+  transition: 0.2s;
+}
+
+.lang-list li:hover {
+  background-color: #f5f5f5;
+  color: #db4444;
 }
 
 .header-wrap {
@@ -27,12 +71,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 15px 0;
-}
-
-.logo-wrap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 .logo {
@@ -43,7 +81,6 @@
 
 .mobile-menu-trigger {
   display: none;
-  cursor: pointer;
 }
 
 .header-navigation ul {
@@ -56,6 +93,11 @@
   text-decoration: none;
   color: #000;
   font-size: 16px;
+  transition: 0.2s;
+}
+
+.header-navigation a:hover {
+  text-decoration: underline;
 }
 
 .header-action-wrap {
@@ -70,6 +112,7 @@
   background-color: #f5f5f5;
   padding: 7px 15px;
   border-radius: 4px;
+  gap: 10px;
 }
 
 .search-wrap input {
@@ -77,6 +120,7 @@
   border: none;
   outline: none;
   width: 180px;
+  font-size: 13px;
 }
 
 .product-action {
@@ -98,7 +142,7 @@
   right: -8px;
   background-color: #db4444;
   color: white;
-  font-size: 11px;
+  font-size: 10px;
   min-width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -113,6 +157,7 @@
   border-radius: 50%;
   display: flex;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .user-dropdown-menu {
@@ -185,7 +230,6 @@
   text-decoration: none;
   color: black;
   font-size: 18px;
-  font-weight: 500;
 }
 
 @media (max-width: 900px) {
@@ -195,21 +239,15 @@
   .mobile-menu-trigger {
     display: block;
   }
-  .search-wrap input {
-    width: 120px;
-  }
-}
-
-@media (max-width: 600px) {
-  .search-wrap {
-    display: none;
-  }
   .top-bar-content {
     flex-direction: column;
-    padding: 8px 0;
+    padding: 10px 0;
   }
   .lang-dropdown {
-    position: static;
-    margin-top: 5px;
+    position: relative;
+    margin-top: 10px;
+  }
+  .search-wrap {
+    display: none;
   }
 }
