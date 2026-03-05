@@ -83,7 +83,7 @@ a {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-top: 30px;
 }
 
 .red-rectangle {
@@ -91,7 +91,7 @@ a {
   height: 40px;
   background-color: #db4444;
   border-radius: 4px;
-  margin-top: 50px;
+  margin-top: -10px;
 }
 
 .section-title p {
