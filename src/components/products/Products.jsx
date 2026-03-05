@@ -14,7 +14,7 @@ const Products = () => {
   const wishlistItems = useSelector((state) => state.like.value);
 
   const items = products.filter((item) => !item.discountPrice);
-  const selectedItems = state ? items.slice(0, 8) : items;
+  const selectedItems = state ? items.slice(0, 4) : items;
 
   const allItems =
     category === "all" || !category
