@@ -1,5 +1,3 @@
-
-
 const products = [
   // CLOTH (5)
   {
