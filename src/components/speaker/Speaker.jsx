@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Speaker.css";
 import products from "../../mock";
 import { Heart, Eye, Star, ShoppingCart } from "lucide-react";
@@ -6,6 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { addLike, deleteLike } from "../../redux/likeSlice";
 import { addToBasket } from "../../redux/basketSlice";
 import { Link } from "react-router-dom";
+import Speakerimg1 from "../../assets/speaker.png";
+import Speakerimg2 from "../../assets/Speakerimg2.png";
+import Speakerimg33 from "../../assets/Speakerimg3.png";
+import Speakerimg3 from "../../assets/Speakerwomanimg.png";
+import Speakerimg4 from "../../assets/Speakerimg4.png";
 
 const Speaker = () => {
   const dispatch = useDispatch();
@@ -13,17 +18,6 @@ const Speaker = () => {
   const cartItems = useSelector((state) => state.basket.value);
 
   const exploreItems = products.slice(8, 16);
-
-  const images = {
-    main: "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=2070",
-    ps5: "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?q=80&w=2070",
-    woman:
-      "https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=1924",
-    speakers:
-      "https://images.unsplash.com/photo-1589121817094-998411c9bc4b?q=80&w=2070",
-    perfume:
-      "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1964",
-  };
 
   const handleToggleLike = (item) => {
     const isExist = wishlistItems.some((liked) => liked.id === item.id);
@@ -66,7 +60,7 @@ const Speaker = () => {
           <button className="speaker-buy-btn">Buy Now!</button>
         </div>
         <div className="speaker-right">
-          <img src={images.main} alt="Speaker" />
+          <img src={Speakerimg1} alt="Speaker" />
         </div>
       </section>
 
@@ -150,7 +144,7 @@ const Speaker = () => {
         </div>
         <div className="new-arrival-grid">
           <div className="grid-item ps5-item">
-            <img src={images.ps5} alt="PS5" />
+            <img src={Speakerimg2} alt="PS5" />
             <div className="grid-content">
               <h3>PlayStation 5</h3>
               <p>Black and White version of the PS5 coming out on sale.</p>
@@ -158,7 +152,7 @@ const Speaker = () => {
             </div>
           </div>
           <div className="grid-item woman-item">
-            <img src={images.woman} alt="Woman" />
+            <img src={Speakerimg3} alt="Woman" />
             <div className="grid-content">
               <h3>Women's Collections</h3>
               <p>Featured woman collections that give you another vibe.</p>
@@ -166,14 +160,14 @@ const Speaker = () => {
             </div>
           </div>
           <div className="grid-item speakers-item">
-            <img src={images.speakers} alt="Speakers" />
+            <img src={Speakerimg33} alt="Speakers" />
             <div className="grid-content">
               <h3>Speakers</h3>
               <Link to="/shop">Shop Now</Link>
             </div>
           </div>
           <div className="grid-item perfume-item">
-            <img src={images.perfume} alt="Perfume" />
+            <img src={Speakerimg4} alt="Perfume" />
             <div className="grid-content">
               <h3>Perfume</h3>
               <Link to="/shop">Shop Now</Link>
