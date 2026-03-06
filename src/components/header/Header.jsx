@@ -129,8 +129,38 @@ const Header = () => {
             </ul>
           </nav>
 
+          <div className={`side-menu ${isSideMenuOpen ? "open" : ""}`}>
+            <div className="side-menu-header">
+              <span onClick={() => setIsSideMenuOpen(false)}>
+                <X size={32} />
+              </span>
+            </div>
+            <ul className="side-menu-links">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              {!isLoggedIn && (
+                <li>
+                  <Link to="/register">Sign Up</Link>
+                </li>
+              )}
+            </ul>
+          </div>
+          {isSideMenuOpen && (
+            <div
+              className="menu-overlay"
+              onClick={() => setIsSideMenuOpen(false)}
+            ></div>
+          )}
+
           <div className="header-action-wrap">
-            <div className="search-wrap">
+            <div className="search-wrap desktop-search">
               <input
                 type="text"
                 placeholder="What are you looking for?"
@@ -138,7 +168,6 @@ const Header = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
               <Search size={20} />
-
               {filteredProducts.length > 0 && (
                 <div className="search-results-dropdown">
                   {filteredProducts.map((product) => (

@@ -1,6 +1,7 @@
 .site-header {
   border-bottom: 1px solid #e5e5e5;
   width: 100%;
+  background: white;
 }
 
 .top-bar {
@@ -70,30 +71,40 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 0;
+  padding: 20px 0;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .logo {
   font-size: 24px;
   font-weight: 700;
   cursor: pointer;
+  margin: 0;
 }
 
 .mobile-menu-trigger {
   display: none;
+  cursor: pointer;
 }
 
 .header-navigation ul {
   display: flex;
   list-style: none;
   gap: 35px;
+  margin: 0;
+  padding: 0;
 }
 
 .header-navigation a {
   text-decoration: none;
   color: #000;
   font-size: 16px;
-  transition: 0.2s;
+  font-weight: 500;
 }
 
 .header-navigation a:hover {
@@ -103,16 +114,16 @@
 .header-action-wrap {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
 }
 
 .search-wrap {
+  position: relative;
   display: flex;
   align-items: center;
-  background-color: #f5f5f5;
+  background: #f5f5f5;
   padding: 7px 15px;
   border-radius: 4px;
-  gap: 10px;
 }
 
 .search-wrap input {
@@ -123,131 +134,6 @@
   font-size: 13px;
 }
 
-.product-action {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.icon-badge-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  color: black;
-}
-
-.badge {
-  position: absolute;
-  top: -5px;
-  right: -8px;
-  background-color: #db4444;
-  color: white;
-  font-size: 10px;
-  min-width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1.5px solid white;
-}
-
-.user-btn {
-  padding: 4px;
-  border-radius: 50%;
-  display: flex;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.user-dropdown-menu {
-  position: absolute;
-  top: 45px;
-  right: 0;
-  width: 220px;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(10px);
-  padding: 15px;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 1000;
-}
-
-.user-dropdown-menu a,
-.logout-btn {
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-}
-
-.logout-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 280px;
-  height: 100vh;
-  background: white;
-  z-index: 2000;
-  transition: 0.4s ease;
-  padding: 20px;
-}
-
-.side-menu.open {
-  left: 0;
-}
-
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1999;
-}
-
-.side-menu-links {
-  list-style: none;
-  margin-top: 40px;
-}
-
-.side-menu-links li {
-  margin-bottom: 25px;
-}
-
-.side-menu-links a {
-  text-decoration: none;
-  color: black;
-  font-size: 18px;
-}
-.search-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: #f5f5f5;
-  padding: 7px 12px;
-  border-radius: 4px;
-}
-
-.search-wrap input {
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 13px;
-  width: 200px;
-}
-
 .search-results-dropdown {
   position: absolute;
   top: 100%;
@@ -255,7 +141,7 @@
   right: 0;
   background: white;
   border: 1px solid #ddd;
-  border-radius: 0 0 4px 4px;
+  border-radius: 4px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 999;
   max-height: 250px;
@@ -270,10 +156,6 @@
   cursor: pointer;
 }
 
-.search-item:hover {
-  background: #f9f9f9;
-}
-
 .search-item img {
   width: 35px;
   height: 35px;
@@ -281,56 +163,143 @@
   margin-right: 10px;
 }
 
-.search-item-name {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
+.product-action {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.search-item-price {
-  font-size: 11px;
-  color: #db4444;
+.icon-badge-wrapper {
+  position: relative;
+  color: black;
 }
 
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: #db4444;
+  color: white;
+  font-size: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+}
+
+.user-dropdown-container {
+  position: relative;
+}
+
+.user-dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 220px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+}
+
+.user-dropdown-menu a,
+.logout-btn,
 .close-user-menu {
+  color: white;
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 100%;
-  padding: 10px 15px;
+  font-size: 14px;
   background: none;
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
   cursor: pointer;
-  font-size: 14px;
-  margin-top: 5px;
-  transition: 0.3s;
 }
 
-.close-user-menu:hover {
-  background: rgba(255, 255, 255, 0.1);
+.close-user-menu {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 10px;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 280px;
+  height: 100vh;
+  background: white;
+  z-index: 2100;
+  transition: 0.4s ease;
+  padding: 30px 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.side-menu-header {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.side-menu-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.side-menu-links li {
+  margin-bottom: 20px;
+}
+
+.side-menu-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
 }
 
 @media (max-width: 900px) {
-  .header-navigation {
+  .header-navigation,
+  .desktop-search {
     display: none;
   }
   .mobile-menu-trigger {
     display: block;
   }
-  .top-bar-content {
-    flex-direction: column;
-    padding: 10px 0;
-  }
-  .lang-dropdown {
-    position: relative;
-    margin-top: 10px;
-  }
-  .search-wrap {
-    display: none;
+  .logo {
+    font-size: 20px;
   }
   .promo-section p {
     display: none;
+  }
+  .header-wrap {
+    padding: 15px 0;
+  }
+  .top-bar-content {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .lang-dropdown {
+    position: static;
   }
 }
