@@ -8,7 +8,8 @@ const products = [
     price: 19.99,
     discountPrice: null,
     discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/thumbnails/057/981/914/small_2x/black-t-shirt-mockup-with-realistic-fabric-texture-and-folds-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/thumbnails/057/981/914/small_2x/black-t-shirt-mockup-with-realistic-fabric-texture-and-folds-png.png",
   },
   {
     id: 2,
@@ -18,7 +19,8 @@ const products = [
     price: 49.5,
     discountPrice: 39.6,
     discountPercent: 20,
-    image: "https://static.vecteezy.com/system/resources/previews/052/389/005/non_2x/slim-fit-jean-jacket-displayed-on-a-transparent-background-for-casual-wardrobe-styling-and-outfit-inspiration-jean-jacket-slim-fit-isolated-on-transparent-background-free-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/052/389/005/non_2x/slim-fit-jean-jacket-displayed-on-a-transparent-background-for-casual-wardrobe-styling-and-outfit-inspiration-jean-jacket-slim-fit-isolated-on-transparent-background-free-png.png",
   },
   {
     id: 3,
@@ -28,7 +30,8 @@ const products = [
     price: 129.0,
     discountPrice: null,
     discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/previews/053/338/348/non_2x/black-leather-jacket-on-transparent-background-free-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/053/338/348/non_2x/black-leather-jacket-on-transparent-background-free-png.png",
   },
   {
     id: 4,
@@ -38,7 +41,8 @@ const products = [
     price: 59.99,
     discountPrice: 47.99,
     discountPercent: 20,
-    image: "https://static.vecteezy.com/system/resources/previews/055/396/301/non_2x/a-3d-mockup-of-a-blank-white-sport-hoodie-displayed-free-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/055/396/301/non_2x/a-3d-mockup-of-a-blank-white-sport-hoodie-displayed-free-png.png",
   },
   {
     id: 5,
@@ -48,7 +52,8 @@ const products = [
     price: 39.99,
     discountPrice: null,
     discountPercent: null,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtiXh7-HtzSa4RJ9k4dUuuWnu8zA71GUo48w&s",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtiXh7-HtzSa4RJ9k4dUuuWnu8zA71GUo48w&s",
   },
 
   // DEVICES (5)
@@ -60,7 +65,8 @@ const products = [
     price: 699.0,
     discountPrice: 629.1,
     discountPercent: 10,
-    image: "https://static.vecteezy.com/system/resources/previews/011/809/172/non_2x/smartphone-design-transparent-background-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/011/809/172/non_2x/smartphone-design-transparent-background-png.png",
   },
   {
     id: 7,
@@ -70,7 +76,8 @@ const products = [
     price: 1199.0,
     discountPrice: null,
     discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/thumbnails/058/678/707/small_2x/silver-laptop-with-blank-screen-ideal-for-modern-workspace-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/thumbnails/058/678/707/small_2x/silver-laptop-with-blank-screen-ideal-for-modern-workspace-png.png",
   },
   {
     id: 8,
@@ -80,7 +87,8 @@ const products = [
     price: 149.0,
     discountPrice: 119.2,
     discountPercent: 20,
-    image: "https://static.vecteezy.com/system/resources/previews/046/596/251/non_2x/ear-buds-modern-headphones-transparent-background-cutout-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/046/596/251/non_2x/ear-buds-modern-headphones-transparent-background-cutout-png.png",
   },
   {
     id: 9,
@@ -90,7 +98,8 @@ const products = [
     price: 199.0,
     discountPrice: null,
     discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/previews/051/754/125/non_2x/smart-watch-isolated-on-transparent-background-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/051/754/125/non_2x/smart-watch-isolated-on-transparent-background-png.png",
   },
   {
     id: 10,
@@ -100,7 +109,8 @@ const products = [
     price: 39.0,
     discountPrice: null,
     discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/previews/054/591/570/non_2x/pink-power-bank-free-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/054/591/570/non_2x/pink-power-bank-free-png.png",
   },
 
   // FURNITURE (5)
@@ -112,7 +122,8 @@ const products = [
     price: 79.0,
     discountPrice: null,
     discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/previews/046/395/772/non_2x/wooden-dining-chair-isolated-on-transparent-background-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/046/395/772/non_2x/wooden-dining-chair-isolated-on-transparent-background-png.png",
   },
   {
     id: 12,
@@ -122,7 +133,8 @@ const products = [
     price: 129.99,
     discountPrice: 110.49,
     discountPercent: 15,
-    image: "https://static.vecteezy.com/system/resources/previews/050/764/123/non_2x/modern-coffee-table-design-isolated-on-transparent-background-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/050/764/123/non_2x/modern-coffee-table-design-isolated-on-transparent-background-png.png",
   },
   {
     id: 13,
@@ -132,7 +144,8 @@ const products = [
     price: 249.0,
     discountPrice: null,
     discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/thumbnails/046/797/124/small_2x/wooden-office-desk-with-lamp-table-isolated-on-transparent-background-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/thumbnails/046/797/124/small_2x/wooden-office-desk-with-lamp-table-isolated-on-transparent-background-png.png",
   },
   {
     id: 14,
@@ -142,7 +155,8 @@ const products = [
     price: 189.5,
     discountPrice: null,
     discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/previews/049/632/718/non_2x/classic-bookshelf-filled-with-vintage-literature-in-a-library-setting-with-transparent-background-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/049/632/718/non_2x/classic-bookshelf-filled-with-vintage-literature-in-a-library-setting-with-transparent-background-png.png",
   },
   {
     id: 15,
@@ -152,7 +166,8 @@ const products = [
     price: 299.0,
     discountPrice: 239.2,
     discountPercent: 20,
-    image: "https://static.vecteezy.com/system/resources/previews/053/741/839/non_2x/cozy-armchair-with-blanket-on-transparent-background-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/053/741/839/non_2x/cozy-armchair-with-blanket-on-transparent-background-png.png",
   },
 
   // TOYS (4)
@@ -164,101 +179,8 @@ const products = [
     price: 24.99,
     discountPrice: null,
     discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/previews/068/020/175/non_2x/a-pink-teddy-bear-toy-on-transparent-background-png.png",
-  },
-  {
-    id: 17,
-    category: "toys",
-    name: "Building Blocks",
-    description: "150-piece building set",
-    price: 34.99,
-    discountPrice: 29.74,
-    discountPercent: 15,
-    image: "https://static.vecteezy.com/system/resources/previews/059/246/334/non_2x/colorful-wooden-blocks-on-transparent-background-free-png.png",
-  },
-  {
-    id: 18,
-    category: "toys",
-    name: "Remote Car",
-    description: "Radio-controlled car",
-    price: 44.99,
-    discountPrice: null,
-    discountPercent: null,
-    image: "https://www.nicepng.com/png/detail/323-3237198_jjrc-rc-cars.png",
-  },
-  {
-    id: 19,
-    category: "toys",
-    name: "Puzzle 1000",
-    description: "1000-piece jigsaw puzzle",
-    price: 19.5,
-    discountPrice: null,
-    discountPercent: null,
-    image: "https://www.nicepng.com/png/detail/88-880356_pepper-1-000-piece-puzzle-clementoni-the-beatles.png",
-  },
-
-  // FOOD (3)
-  {
-    id: 20,
-    category: "food",
-    name: "Organic Honey",
-    description: "Natural honey jar 500g",
-    price: 12.99,
-    discountPrice: null,
-    discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/previews/027/254/791/non_2x/honey-isolated-on-transparent-background-file-cut-out-ai-generated-png.png",
-  },
-  {
-    id: 21,
-    category: "food",
-    name: "Chocolate Box",
-    description: "Gourmet chocolate selection 250g",
-    price: 22.0,
-    discountPrice: 18.7,
-    discountPercent: 15,
-    image: "https://static.vecteezy.com/system/resources/previews/045/649/028/non_2x/chocolates-in-a-gift-box-on-transparent-background-png.png",
-  },
-  {
-    id: 22,
-    category: "food",
-    name: "Espresso Beans 1kg",
-    description: "Fresh roasted espresso beans",
-    price: 24.5,
-    discountPrice: null,
-    discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/previews/045/763/732/non_2x/coffee-beans-in-air-on-transparent-background-png.png",
-  },
-
-  // MAKE UP (3)
-  {
-    id: 23,
-    category: "make up",
-    name: "Liquid Foundation",
-    description: "Foundation 30ml for even skin",
-    price: 29.99,
-    discountPrice: 24.99,
-    discountPercent: 17,
-    image: "https://static.vecteezy.com/system/resources/previews/049/500/918/non_2x/liquid-make-up-foundation-in-glass-bottle-isolated-on-transparent-background-free-png.png",
-  },
-  {
-    id: 24,
-    category: "make up",
-    name: "Matte Lipstick",
-    description: "Long-wear matte lipstick",
-    price: 14.5,
-    discountPrice: null,
-    discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/previews/067/245/860/non_2x/3d-pink-lipstick-icon-with-gold-tube-elegant-makeup-product-illustration-on-transparent-background-for-beauty-and-cosmetics-design-png.png",
-  },
-  {
-    id: 25,
-    category: "make up",
-    name: "Mascara Volume",
-    description: "Lengthening mascara",
-    price: 19.99,
-    discountPrice: null,
-    discountPercent: null,
-    image: "https://static.vecteezy.com/system/resources/previews/059/692/941/non_2x/unbranded-mascara-tube-and-wand-top-view-for-makeup-and-beauty-product-mockups-isolated-on-transparent-background-png.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/068/020/175/non_2x/a-pink-teddy-bear-toy-on-transparent-background-png.png",
   },
 ];
 
