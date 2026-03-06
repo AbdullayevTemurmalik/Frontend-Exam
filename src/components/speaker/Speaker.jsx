@@ -12,7 +12,8 @@ const Speaker = () => {
   const wishlistItems = useSelector((state) => state.like.value);
   const cartItems = useSelector((state) => state.basket.value);
 
-  const exploreItems = products.slice(0, 8);
+  const exploreItems = products.slice(8, 16);
+
   const images = {
     main: "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=2070",
     ps5: "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?q=80&w=2070",

@@ -5,21 +5,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { BiHeart } from "react-icons/bi";
-import { BsEye, BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import { FaHeart, FaStar } from "react-icons/fa6";
-import { useDispatch } from "react-redux";
-import { addLike } from "../../redux/likeSlice";
+import { Heart, Eye, ArrowLeft, ArrowRight, Star } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { addLike, deleteLike } from "../../redux/likeSlice";
 import { addToBasket } from "../../redux/basketSlice";
 import { Link } from "react-router-dom";
 
 const Discount = () => {
   const dispatch = useDispatch();
-  const [likedItems, setLikedItems] = useState({});
+  const wishlistItems = useSelector((state) => state.like.value);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  const items = products.filter((item) => item.id >= 1 && item.id <= 4);
+  const baseItems = products.filter((item) => item.id >= 1 && item.id <= 4);
+  const items = [...baseItems, ...baseItems];
 
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
@@ -50,6 +49,15 @@ const Discount = () => {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleToggleLike = (item) => {
+    const isExist = wishlistItems.some((liked) => liked.id === item.id);
+    if (isExist) {
+      dispatch(deleteLike(item.id));
+    } else {
+      dispatch(addLike(item));
+    }
+  };
 
   return (
     <section className="discount-section container">
@@ -86,18 +94,16 @@ const Discount = () => {
         </div>
         <div className="custom-nav-wrapper">
           <button ref={prevRef} className="custom-prev">
-            <BsArrowLeft />
+            <ArrowLeft size={20} />
           </button>
           <button ref={nextRef} className="custom-next">
-            <BsArrowRight />
+            <ArrowRight size={20} />
           </button>
         </div>
       </div>
 
       <div className="swiper-wrap">
         <Swiper
-          slidesPerView={4}
-          spaceBetween={30}
           onInit={(swiper) => {
             swiper.params.navigation.prevEl = prevRef.current;
             swiper.params.navigation.nextEl = nextRef.current;
@@ -105,6 +111,9 @@ const Discount = () => {
             swiper.navigation.update();
           }}
           modules={[Navigation]}
+          slidesPerView={4}
+          spaceBetween={30}
+          loop={true}
           breakpoints={{
             0: { slidesPerView: 1.3, spaceBetween: 15 },
             480: { slidesPerView: 2.2, spaceBetween: 20 },
@@ -112,68 +121,66 @@ const Discount = () => {
             1024: { slidesPerView: 4, spaceBetween: 30 },
           }}
         >
-          {items.map((item) => (
-            <SwiperSlide key={item.id}>
-              <div className="card">
-                <div className="card-top">
-                  {item.discountPercent && (
-                    <span className="discount-tag">
-                      -{item.discountPercent}%
-                    </span>
-                  )}
-                  <div className="card-icons">
-                    <span
-                      className="icon-bg"
-                      onClick={() => {
-                        setLikedItems((p) => ({
-                          ...p,
-                          [item.id]: !p[item.id],
-                        }));
-                        dispatch(addLike(item));
-                      }}
-                    >
-                      {likedItems[item.id] ? (
-                        <FaHeart color="#db4444" />
-                      ) : (
-                        <BiHeart />
-                      )}
-                    </span>
-                    <Link to={`/product/${item.id}`} className="icon-bg">
-                      <BsEye color="black" />
-                    </Link>
-                  </div>
-                  <img src={item.image} alt={item.name} />
-                  <button
-                    className="add-to-cart-btn"
-                    onClick={() =>
-                      dispatch(addToBasket({ ...item, quantity: 1 }))
-                    }
-                  >
-                    Add To Cart
-                  </button>
-                </div>
-                <div className="card-bottom">
-                  <h3>{item.name}</h3>
-                  <div className="item-price">
-                    <p className="new-price">${item.price}</p>
-                    {item.discountPrice && (
-                      <del className="old-price">${item.discountPrice}</del>
+          {items.map((item, index) => {
+            const isLiked = wishlistItems.some((liked) => liked.id === item.id);
+            return (
+              <SwiperSlide key={`${item.id}-${index}`}>
+                <div className="card">
+                  <div className="card-top">
+                    {item.discountPercent && (
+                      <span className="discount-tag">
+                        -{item.discountPercent}%
+                      </span>
                     )}
+                    <div className="card-icons">
+                      <span
+                        className="icon-bg"
+                        onClick={() => handleToggleLike(item)}
+                      >
+                        <Heart
+                          size={20}
+                          fill={isLiked ? "#db4444" : "none"}
+                          color={isLiked ? "#db4444" : "black"}
+                        />
+                      </span>
+                      <Link to={`/product/${item.id}`} className="icon-bg">
+                        <Eye size={20} color="black" />
+                      </Link>
+                    </div>
+                    <img src={item.image} alt={item.name} />
+                    <button
+                      className="add-to-cart-btn"
+                      onClick={() =>
+                        dispatch(addToBasket({ ...item, quantity: 1 }))
+                      }
+                    >
+                      Add To Cart
+                    </button>
                   </div>
-                  <div className="rating-wrap">
-                    {[...Array(5)].map((_, i) => (
-                      <FaStar
-                        key={i}
-                        color={i < 4 ? "#FFAD33" : "#D1D1D1"}
-                        size={14}
-                      />
-                    ))}
-                    <span className="count">({item.ratingCount || 88})</span>
+                  <div className="card-bottom">
+                    <h3>{item.name}</h3>
+                    <div className="item-price">
+                      <p className="new-price">${item.price}</p>
+                      {item.discountPrice && (
+                        <del className="old-price">${item.discountPrice}</del>
+                      )}
+                    </div>
+                    <div className="rating-wrap">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          fill={i < 4 ? "#FFAD33" : "none"}
+                          color={i < 4 ? "#FFAD33" : "#D1D1D1"}
+                          size={14}
+                        />
+                      ))}
+                      <span className="count">({item.ratingCount || 88})</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
       <div className="view-all-footer">
