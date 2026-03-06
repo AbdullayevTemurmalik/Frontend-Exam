@@ -36,6 +36,7 @@ const Header = () => {
     const userStatus = localStorage.getItem("isLoggedIn") === "true";
     setIsLoggedIn(userStatus);
     setIsSideMenuOpen(false);
+    setIsUserMenuOpen(false);
     setSearchTerm("");
   }, [location]);
 
@@ -189,20 +190,38 @@ const Header = () => {
                   </span>
                   {isUserMenuOpen && (
                     <div className="user-dropdown-menu">
-                      <Link to="/account">
+                      <Link
+                        to="/account"
+                        onClick={() => setIsUserMenuOpen(false)}
+                      >
                         <User size={20} /> Manage Account
                       </Link>
-                      <Link to="/orders">
+                      <Link
+                        to="/orders"
+                        onClick={() => setIsUserMenuOpen(false)}
+                      >
                         <ShoppingBag size={20} /> My Order
                       </Link>
-                      <Link to="/cancellations">
+                      <Link
+                        to="/cancellations"
+                        onClick={() => setIsUserMenuOpen(false)}
+                      >
                         <XCircle size={20} /> Cancellations
                       </Link>
-                      <Link to="/reviews">
+                      <Link
+                        to="/reviews"
+                        onClick={() => setIsUserMenuOpen(false)}
+                      >
                         <Star size={20} /> My Reviews
                       </Link>
                       <button onClick={handleLogout} className="logout-btn">
                         <LogOut size={20} /> Logout
+                      </button>
+                      <button
+                        className="close-user-menu"
+                        onClick={() => setIsUserMenuOpen(false)}
+                      >
+                        <X size={20} /> Close Menu
                       </button>
                     </div>
                   )}

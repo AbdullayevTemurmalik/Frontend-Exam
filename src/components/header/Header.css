@@ -292,6 +292,26 @@
   color: #db4444;
 }
 
+.close-user-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 15px;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 5px;
+  transition: 0.3s;
+}
+
+.close-user-menu:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 @media (max-width: 900px) {
   .header-navigation {
     display: none;
