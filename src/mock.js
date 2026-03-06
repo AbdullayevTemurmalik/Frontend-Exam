@@ -1,5 +1,21 @@
+import Mockimg1 from "./assets/Mock1.png";
+import Mockimg2 from "./assets/Mock2.png";
+import Mockimg3 from "./assets/Mock3.png";
+import Mockimg4 from "./assets/Mock4.png";
+import Mockimg5 from "./assets/Mock5.png";
+import Mockimg6 from "./assets/Mock6.png";
+import Mockimg7 from "./assets/Mock7.png";
+import Mockimg8 from "./assets/Mock8.png";
+import Mockimg9 from "./assets/Mock9.png";
+import Mockimg10 from "./assets/Mock10.png";
+import Mockimg11 from "./assets/Mock11.png";
+import Mockimg12 from "./assets/Mock12.png";
+import Mockimg13 from "./assets/Mock13.png";
+import Mockimg14 from "./assets/Mock14.png";
+import Mockimg15 from "./assets/Mock15.png";
+import Mockimg16 from "./assets/Mock16.png";
+
 const products = [
-  // CLOTH (5)
   {
     id: 1,
     category: "cloth",
@@ -8,8 +24,7 @@ const products = [
     price: 19.99,
     discountPrice: null,
     discountPercent: null,
-    image:
-      "https://static.vecteezy.com/system/resources/thumbnails/057/981/914/small_2x/black-t-shirt-mockup-with-realistic-fabric-texture-and-folds-png.png",
+    image: Mockimg1,
   },
   {
     id: 2,
@@ -19,8 +34,7 @@ const products = [
     price: 49.5,
     discountPrice: 39.6,
     discountPercent: 20,
-    image:
-      "https://static.vecteezy.com/system/resources/previews/052/389/005/non_2x/slim-fit-jean-jacket-displayed-on-a-transparent-background-for-casual-wardrobe-styling-and-outfit-inspiration-jean-jacket-slim-fit-isolated-on-transparent-background-free-png.png",
+    image: Mockimg2,
   },
   {
     id: 3,
@@ -30,8 +44,7 @@ const products = [
     price: 129.0,
     discountPrice: null,
     discountPercent: null,
-    image:
-      "https://static.vecteezy.com/system/resources/previews/053/338/348/non_2x/black-leather-jacket-on-transparent-background-free-png.png",
+    image: Mockimg3,
   },
   {
     id: 4,
@@ -41,8 +54,7 @@ const products = [
     price: 59.99,
     discountPrice: 47.99,
     discountPercent: 20,
-    image:
-      "https://static.vecteezy.com/system/resources/previews/055/396/301/non_2x/a-3d-mockup-of-a-blank-white-sport-hoodie-displayed-free-png.png",
+    image: Mockimg4,
   },
   {
     id: 5,
@@ -52,11 +64,8 @@ const products = [
     price: 39.99,
     discountPrice: null,
     discountPercent: null,
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtiXh7-HtzSa4RJ9k4dUuuWnu8zA71GUo48w&s",
+    image: Mockimg5,
   },
-
-  // DEVICES (5)
   {
     id: 6,
     category: "devices",
@@ -65,8 +74,7 @@ const products = [
     price: 699.0,
     discountPrice: 629.1,
     discountPercent: 10,
-    image:
-      "https://static.vecteezy.com/system/resources/previews/011/809/172/non_2x/smartphone-design-transparent-background-png.png",
+    image: Mockimg6,
   },
   {
     id: 7,
@@ -76,8 +84,7 @@ const products = [
     price: 1199.0,
     discountPrice: null,
     discountPercent: null,
-    image:
-      "https://static.vecteezy.com/system/resources/thumbnails/058/678/707/small_2x/silver-laptop-with-blank-screen-ideal-for-modern-workspace-png.png",
+    image: Mockimg7,
   },
   {
     id: 8,
@@ -87,8 +94,7 @@ const products = [
     price: 149.0,
     discountPrice: 119.2,
     discountPercent: 20,
-    image:
-      "https://static.vecteezy.com/system/resources/previews/046/596/251/non_2x/ear-buds-modern-headphones-transparent-background-cutout-png.png",
+    image: Mockimg8,
   },
   {
     id: 9,
@@ -98,8 +104,7 @@ const products = [
     price: 199.0,
     discountPrice: null,
     discountPercent: null,
-    image:
-      "https://static.vecteezy.com/system/resources/previews/051/754/125/non_2x/smart-watch-isolated-on-transparent-background-png.png",
+    image: Mockimg9,
   },
   {
     id: 10,
@@ -109,11 +114,8 @@ const products = [
     price: 39.0,
     discountPrice: null,
     discountPercent: null,
-    image:
-      "https://static.vecteezy.com/system/resources/previews/054/591/570/non_2x/pink-power-bank-free-png.png",
+    image: Mockimg10,
   },
-
-  // FURNITURE (5)
   {
     id: 11,
     category: "furniture",
@@ -122,8 +124,7 @@ const products = [
     price: 79.0,
     discountPrice: null,
     discountPercent: null,
-    image:
-      "https://static.vecteezy.com/system/resources/previews/046/395/772/non_2x/wooden-dining-chair-isolated-on-transparent-background-png.png",
+    image: Mockimg11,
   },
   {
     id: 12,
@@ -133,8 +134,7 @@ const products = [
     price: 129.99,
     discountPrice: 110.49,
     discountPercent: 15,
-    image:
-      "https://static.vecteezy.com/system/resources/previews/050/764/123/non_2x/modern-coffee-table-design-isolated-on-transparent-background-png.png",
+    image: Mockimg12,
   },
   {
     id: 13,
@@ -144,8 +144,7 @@ const products = [
     price: 249.0,
     discountPrice: null,
     discountPercent: null,
-    image:
-      "https://static.vecteezy.com/system/resources/thumbnails/046/797/124/small_2x/wooden-office-desk-with-lamp-table-isolated-on-transparent-background-png.png",
+    image: Mockimg13,
   },
   {
     id: 14,
@@ -155,8 +154,7 @@ const products = [
     price: 189.5,
     discountPrice: null,
     discountPercent: null,
-    image:
-      "https://static.vecteezy.com/system/resources/previews/049/632/718/non_2x/classic-bookshelf-filled-with-vintage-literature-in-a-library-setting-with-transparent-background-png.png",
+    image: Mockimg14,
   },
   {
     id: 15,
@@ -166,11 +164,8 @@ const products = [
     price: 299.0,
     discountPrice: 239.2,
     discountPercent: 20,
-    image:
-      "https://static.vecteezy.com/system/resources/previews/053/741/839/non_2x/cozy-armchair-with-blanket-on-transparent-background-png.png",
+    image: Mockimg15,
   },
-
-  // TOYS (4)
   {
     id: 16,
     category: "toys",
@@ -179,8 +174,7 @@ const products = [
     price: 24.99,
     discountPrice: null,
     discountPercent: null,
-    image:
-      "https://static.vecteezy.com/system/resources/previews/068/020/175/non_2x/a-pink-teddy-bear-toy-on-transparent-background-png.png",
+    image: Mockimg16,
   },
 ];
 
