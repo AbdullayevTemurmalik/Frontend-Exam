@@ -18,8 +18,8 @@ import Mockimg16 from "./assets/Mock16.png";
 const products = [
   {
     id: 1,
-    category: "cloth",
-    name: "Classic T-Shirt",
+    // category: "cloth",
+    name: "HAVIT HV-G92 Gamepad",
     description: "Soft cotton crew-neck tee",
     price: 19.99,
     discountPrice: null,
@@ -28,8 +28,8 @@ const products = [
   },
   {
     id: 2,
-    category: "cloth",
-    name: "Denim Jeans",
+    // category: "cloth",
+    name: "AK-900 Wired Keyboard",
     description: "Straight-fit denim jeans",
     price: 49.5,
     discountPrice: 39.6,
@@ -38,8 +38,8 @@ const products = [
   },
   {
     id: 3,
-    category: "cloth",
-    name: "Leather Jacket",
+    // category: "cloth",
+    name: "IPS LCD Gaming Monitor",
     description: "Genuine leather biker jacket",
     price: 129.0,
     discountPrice: null,
@@ -48,9 +48,9 @@ const products = [
   },
   {
     id: 4,
-    category: "cloth",
-    name: "Sports Hoodie",
-    description: "Warm hoodie for workouts",
+    // category: "cloth",
+    name: "S-Series Comfort Chair",
+    description: "S-Series Comfort Chair",
     price: 59.99,
     discountPrice: 47.99,
     discountPercent: 20,
@@ -58,9 +58,9 @@ const products = [
   },
   {
     id: 5,
-    category: "cloth",
-    name: "Summer Dress",
-    description: "Light knee-length dress",
+    // category: "cloth",
+    name: "The north coat",
+    description: "Gucci duffle bag",
     price: 39.99,
     discountPrice: null,
     discountPercent: null,
@@ -68,8 +68,8 @@ const products = [
   },
   {
     id: 6,
-    category: "devices",
-    name: "Smartphone X",
+    // category: "devices",
+    name: "Gucci duffle bag",
     description: "High-end smartphone with OLED",
     price: 699.0,
     discountPrice: 629.1,
@@ -78,8 +78,8 @@ const products = [
   },
   {
     id: 7,
-    category: "devices",
-    name: 'Laptop Pro 14"',
+    // category: "devices",
+    name: 'RGB liquid CPU Cooler"',
     description: "Ultra-portable laptop",
     price: 1199.0,
     discountPrice: null,
@@ -88,8 +88,8 @@ const products = [
   },
   {
     id: 8,
-    category: "devices",
-    name: "Wireless Earbuds",
+    // category: "devices",
+    name: "Small BookShelf",
     description: "Noise-cancelling true wireless",
     price: 149.0,
     discountPrice: 119.2,
@@ -98,8 +98,8 @@ const products = [
   },
   {
     id: 9,
-    category: "devices",
-    name: "Smart Watch",
+    // category: "devices",
+    name: "Breed Dry Dog Food",
     description: "Fitness smartwatch with GPS",
     price: 199.0,
     discountPrice: null,
@@ -108,8 +108,8 @@ const products = [
   },
   {
     id: 10,
-    category: "devices",
-    name: "Portable Charger",
+    // category: "devices",
+    name: "CANON EOS DSLR Camera",
     description: "10,000 mAh powerbank",
     price: 39.0,
     discountPrice: null,
@@ -118,8 +118,8 @@ const products = [
   },
   {
     id: 11,
-    category: "furniture",
-    name: "Dining Chair",
+    // category: "furniture",
+    name: "ASUS FHD Gaming Laptop",
     description: "Wooden dining chair",
     price: 79.0,
     discountPrice: null,
@@ -128,8 +128,8 @@ const products = [
   },
   {
     id: 12,
-    category: "furniture",
-    name: "Coffee Table",
+    // category: "furniture",
+    name: "Curology Product Set",
     description: "Low coffee table for living room",
     price: 129.99,
     discountPrice: 110.49,
@@ -138,8 +138,8 @@ const products = [
   },
   {
     id: 13,
-    category: "furniture",
-    name: "Office Desk",
+    // category: "furniture",
+    name: "Kids Electric Car",
     description: "Writing desk with two drawers",
     price: 249.0,
     discountPrice: null,
@@ -148,8 +148,8 @@ const products = [
   },
   {
     id: 14,
-    category: "furniture",
-    name: "Bookshelf",
+    // category: "furniture",
+    name: "Jr. Zoom Soccer Cleats",
     description: "Five-shelf open bookshelf",
     price: 189.5,
     discountPrice: null,
@@ -158,8 +158,8 @@ const products = [
   },
   {
     id: 15,
-    category: "furniture",
-    name: "Armchair Cozy",
+    // category: "furniture",
+    name: "GP11 Shooter USB Gamepad",
     description: "Comfortable upholstered armchair",
     price: 299.0,
     discountPrice: 239.2,
@@ -168,8 +168,8 @@ const products = [
   },
   {
     id: 16,
-    category: "toys",
-    name: "Teddy Bear",
+    // category: "toys",
+    name: "Quilted Satin Jacket",
     description: "Soft plush teddy bear 30cm",
     price: 24.99,
     discountPrice: null,
@@ -179,3 +179,4 @@ const products = [
 ];
 
 export default products;
+// 

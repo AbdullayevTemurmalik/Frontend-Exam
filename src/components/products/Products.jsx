@@ -13,8 +13,8 @@ const Products = () => {
   const category = useSelector((state) => state.filter.value);
   const wishlistItems = useSelector((state) => state.like.value);
 
-  const items = products.filter((item) => !item.discountPrice);
-  const selectedItems = state ? items.slice(0, 4) : items;
+  const items = products.slice(4, 8);
+  const selectedItems = state ? items : products;
 
   const allItems =
     category === "all" || !category
@@ -69,7 +69,9 @@ const Products = () => {
                     />
                   </span>
                   <Link to={`/product/${item.id}`} className="icon-wrap">
-                    <Eye size={20} color="black" />
+                    <span className="icon-wrap">
+                      <Eye size={20} color="black" />
+                    </span>
                   </Link>
                 </div>
 

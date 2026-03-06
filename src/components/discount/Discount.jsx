@@ -19,7 +19,7 @@ const Discount = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  const items = products.filter((item) => Boolean(item.discountPrice) === true);
+  const items = products.filter((item) => item.id >= 1 && item.id <= 4);
 
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
@@ -116,7 +116,11 @@ const Discount = () => {
             <SwiperSlide key={item.id}>
               <div className="card">
                 <div className="card-top">
-                  <span className="discount-tag">-{item.discountPercent}%</span>
+                  {item.discountPercent && (
+                    <span className="discount-tag">
+                      -{item.discountPercent}%
+                    </span>
+                  )}
                   <div className="card-icons">
                     <span
                       className="icon-bg"
@@ -152,7 +156,9 @@ const Discount = () => {
                   <h3>{item.name}</h3>
                   <div className="item-price">
                     <p className="new-price">${item.price}</p>
-                    <del className="old-price">${item.discountPrice}</del>
+                    {item.discountPrice && (
+                      <del className="old-price">${item.discountPrice}</del>
+                    )}
                   </div>
                   <div className="rating-wrap">
                     {[...Array(5)].map((_, i) => (
