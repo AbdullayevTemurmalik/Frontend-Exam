@@ -31,6 +31,9 @@ const Heart = () => {
 
   return (
     <main className="wishlist-page container">
+      <helmet>
+        <title>Like Page</title>
+      </helmet>
       <div className="wishlist-header">
         <h3>Wishlist ({likedItems.length})</h3>
         <button

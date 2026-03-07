@@ -55,6 +55,9 @@ const Registration = () => {
 
   return (
     <div className="registration">
+      <helmet>
+        <title>Sign Up</title>
+      </helmet>
       <div className="registration-wrap">
         <div className="registration-left">
           <img src={phone} alt="side" />

@@ -36,6 +36,9 @@ const Basket = () => {
 
   return (
     <div className="container basket-page">
+      <helmet>
+        <title>Basket Page</title>
+      </helmet>
       <div className="breadcrumb">
         <Link to="/">Home</Link> / <span>Cart</span>
       </div>
@@ -101,7 +104,7 @@ const Basket = () => {
 
       <div className="basket-footer">
         <div className="coupon-box">
-          <input className='inputid' type="text" placeholder="Coupon Code" />
+          <input className="inputid" type="text" placeholder="Coupon Code" />
           <button className="red-btn">Apply Coupon</button>
         </div>
 

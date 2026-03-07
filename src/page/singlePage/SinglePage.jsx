@@ -35,6 +35,9 @@ const SinglePage = () => {
 
   return (
     <div className="container single-page-container">
+      <helmet>
+        <title>Single Page</title>
+      </helmet>
       <nav className="breadcrumb">
         <Link to="/account">Account</Link> / <Link to="/gaming">Gaming</Link> /{" "}
         <span>{product.name}</span>

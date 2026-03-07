@@ -13,7 +13,8 @@ import SinglePage from "./page/singlePage/SinglePage";
 import Basket from "./page/basket/Basket";
 import Contact from "./page/contact/Contact";
 import Checkout from "./components/checkout/Checkout";
-
+import { HelmetProvider } from "react-helmet-async";
+HelmetProvider;
 export const sendState = createContext();
 
 function App() {
@@ -42,6 +43,8 @@ function App() {
 
   return (
     <>
+    <HelmetProvider>
+    </HelmetProvider>
       <sendState.Provider value={{ state, setState }}>
         <Header />
         <Routes>

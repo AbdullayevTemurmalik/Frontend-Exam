@@ -70,6 +70,9 @@ const Contact = () => {
 
   return (
     <div className="container contact-wrap">
+      <helmet>
+        <title>Contact Page</title>
+      </helmet>
       <div className="contact-left">
         <div className="contact">
           <div className="contact-title">

@@ -87,6 +87,9 @@ const About = () => {
   ];
   return (
     <main className="container about-wrap">
+      <helmet>
+        <title>About Page</title>
+      </helmet>
       <section className="story-wrap">
         <div className="story-left">
           <h2>Our Story</h2>

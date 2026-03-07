@@ -79,6 +79,9 @@ const Checkout = () => {
 
   return (
     <div className="container checkout-page">
+      <helmet>
+        <title>Checkout Page</title>
+      </helmet>
       <nav className="breadcrumb">
         Account / My Account / Product / View Cart / <span>CheckOut</span>
       </nav>
