@@ -4,7 +4,6 @@ import Hero from "../../components/hero/Hero";
 import Products from "../../components/products/Products";
 import Pros from "../../components/prosOfCompany/Pros";
 import Speaker from "../../components/speaker/Speaker";
-// import helmet from "helmet";
 
 const Home = () => {
   return (
