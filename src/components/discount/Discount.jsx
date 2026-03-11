@@ -115,6 +115,12 @@ const Discount = () => {
           slidesPerView={4}
           spaceBetween={30}
           loop={true}
+          breakpoints={{
+            0: { slidesPerView: 1.3, spaceBetween: 15 },
+            480: { slidesPerView: 2.2, spaceBetween: 20 },
+            768: { slidesPerView: 3, spaceBetween: 25 },
+            1024: { slidesPerView: 4, spaceBetween: 30 },
+          }}
         >
           {items.map((item, idx) => {
             const isLiked = wishlistItems.some((liked) => liked.id === item.id);
