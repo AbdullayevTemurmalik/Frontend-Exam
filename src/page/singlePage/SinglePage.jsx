@@ -4,10 +4,12 @@ import products from "../../mock";
 import { useState } from "react";
 import { Truck, RotateCcw, Minus, Plus, Heart, Star } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { addToBasket } from "../../redux/basketSlice";
 import { addLike, deleteLike } from "../../redux/likeSlice";
 
 const SinglePage = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -16,7 +18,7 @@ const SinglePage = () => {
   const wishlistItems = useSelector((state) => state.like.value);
   const product = products.find((item) => item.id == id);
 
-  if (!product) return <div className="container">Product not found!</div>;
+  if (!product) return <div className="container">{t("not_found")}</div>;
 
   const isLiked = wishlistItems.some((liked) => liked.id === product.id);
 
@@ -35,12 +37,12 @@ const SinglePage = () => {
 
   return (
     <div className="container single-page-container">
-      <helmet>
-        <title>Single Page</title>
-      </helmet>
+      <title>{t(product.nameKey)}</title>
+
       <nav className="breadcrumb">
-        <Link to="/account">Account</Link> / <Link to="/gaming">Gaming</Link> /{" "}
-        <span>{product.name}</span>
+        <Link to="/account">{t("account")}</Link> /{" "}
+        <Link to="/gaming">{t("gaming")}</Link> /{" "}
+        <span>{t(product.nameKey)}</span>
       </nav>
 
       <div className="product-main">
@@ -53,11 +55,11 @@ const SinglePage = () => {
         </div>
 
         <div className="product-image-main">
-          <img src={product.image} alt={product.name} />
+          <img src={product.image} alt={t(product.nameKey)} />
         </div>
 
         <div className="product-details">
-          <h2>{product.name}</h2>
+          <h2>{t(product.nameKey)}</h2>
           <div className="product-meta">
             <div className="stars-row">
               {[...Array(5)].map((_, i) => (
@@ -68,25 +70,21 @@ const SinglePage = () => {
                   color="#FFAD33"
                 />
               ))}
-              <span>(150 Reviews)</span>
+              <span>{t("reviews_count", { count: 150 })}</span>
             </div>
             <span className="divider">|</span>
-            <span className="stock-status">In Stock</span>
+            <span className="stock-status">{t("in_stock")}</span>
           </div>
 
           <div className="price-tag">${product.price.toFixed(2)}</div>
 
-          <p className="description">
-            PlayStation 5 Controller Skin High quality vinyl with air channel
-            adhesive for easy bubble free install & mess free removal Pressure
-            sensitive.
-          </p>
+          <p className="description">{t(product.descKey)}</p>
 
           <hr />
 
           <div className="options-section">
             <div className="colors">
-              <span>Colours:</span>
+              <span>{t("colours")}</span>
               <div className="color-dots">
                 <span className="dot blue active"></span>
                 <span className="dot red"></span>
@@ -94,7 +92,7 @@ const SinglePage = () => {
             </div>
 
             <div className="sizes">
-              <span>Size:</span>
+              <span>{t("size")}</span>
               <div className="size-btns">
                 {["XS", "S", "M", "L", "XL"].map((size) => (
                   <button key={size} className={size === "M" ? "active" : ""}>
@@ -119,7 +117,7 @@ const SinglePage = () => {
               </button>
             </div>
             <button className="buy-now-btn" onClick={handleAddToCart}>
-              Buy Now
+              {t("buy_now_single")}
             </button>
             <button
               className={`wishlist-btn ${isLiked ? "liked" : ""}`}
@@ -133,16 +131,16 @@ const SinglePage = () => {
             <div className="info-row">
               <Truck size={32} />
               <div>
-                <h4>Free Delivery</h4>
-                <p>Enter your postal code for Delivery Availability</p>
+                <h4>{t("free_delivery")}</h4>
+                <p>{t("delivery_desc")}</p>
               </div>
             </div>
             <div className="info-row">
               <RotateCcw size={32} />
               <div>
-                <h4>Return Delivery</h4>
+                <h4>{t("return_delivery")}</h4>
                 <p>
-                  Free 30 Days Delivery Returns. <u>Details</u>
+                  {t("return_desc")} <u>{t("details")}</u>
                 </p>
               </div>
             </div>

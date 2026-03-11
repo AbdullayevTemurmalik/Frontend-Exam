@@ -1,11 +1,13 @@
 import { Trash2, ShoppingCart } from "lucide-react";
 import "./Heart.css";
 import { useSelector, useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { deleteLike } from "../../redux/likeSlice";
 import { addToBasket } from "../../redux/basketSlice";
 import { Link } from "react-router-dom";
 
 const Heart = () => {
+  const { t } = useTranslation();
   const likedItems = useSelector((item) => item.like.value);
   const dispatch = useDispatch();
 
@@ -16,13 +18,10 @@ const Heart = () => {
           <div className="icon-box">
             <Trash2 size={80} strokeWidth={1} />
           </div>
-          <h2>Sizning istaklar ro'yxatingiz bo'sh</h2>
-          <p>
-            Sevimli mahsulotlaringizni keyinroq ko'rish uchun ularga yurakcha
-            belgisini bosing.
-          </p>
+          <h2>{t("wishlist_empty")}</h2>
+          <p>{t("wishlist_desc")}</p>
           <Link to="/" className="red-btn shop-now-btn">
-            Xaridni boshlash
+            {t("start_shopping")}
           </Link>
         </div>
       </div>
@@ -31,11 +30,10 @@ const Heart = () => {
 
   return (
     <main className="wishlist-page container">
-      <helmet>
-        <title>Like Page</title>
-      </helmet>
+      <title>{t("like_page_title")}</title>
+
       <div className="wishlist-header">
-        <h3>Wishlist ({likedItems.length})</h3>
+        <h3>{t("wishlist_count", { count: likedItems.length })}</h3>
         <button
           className="outline-btn"
           onClick={() =>
@@ -44,7 +42,7 @@ const Heart = () => {
             )
           }
         >
-          Move All To Bag
+          {t("move_all_to_bag")}
         </button>
       </div>
 
@@ -68,7 +66,7 @@ const Heart = () => {
                 className="add-to-cart-bar"
                 onClick={() => dispatch(addToBasket({ ...item, quantity: 1 }))}
               >
-                <ShoppingCart size={18} /> Add To Cart
+                <ShoppingCart size={18} /> {t("add_to_cart")}
               </button>
             </div>
             <div className="card-bottom">

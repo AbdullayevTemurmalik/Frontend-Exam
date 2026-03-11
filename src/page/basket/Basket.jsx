@@ -5,10 +5,12 @@ import {
   decrementQuantity,
 } from "../../redux/basketSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { X, ChevronUp, ChevronDown, ShoppingBag } from "lucide-react";
 import "./Basket.css";
 
 const Basket = () => {
+  const { t } = useTranslation();
   const arr = useSelector((item) => item.basket.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,13 +23,10 @@ const Basket = () => {
           <div className="empty-icon-circle">
             <ShoppingBag size={80} strokeWidth={1} />
           </div>
-          <h2>Your Cart is Empty</h2>
-          <p>
-            Looks like you haven't added anything to your cart yet. <br />{" "}
-            Explore our best categories and find something you love!
-          </p>
+          <h2>{t("cart_empty")}</h2>
+          <p>{t("cart_empty_desc")}</p>
           <Link to="/" className="red-btn return-home-btn">
-            Go Shopping
+            {t("go_shopping")}
           </Link>
         </div>
       </div>
@@ -36,26 +35,25 @@ const Basket = () => {
 
   return (
     <div className="container basket-page">
-      <helmet>
-        <title>Basket Page</title>
-      </helmet>
+      <title>{t("basket_page_title")}</title>
+
       <div className="breadcrumb">
-        <Link to="/">Home</Link> / <span>Cart</span>
+        <Link to="/">{t("home")}</Link> / <span>{t("cart")}</span>
       </div>
 
       <table className="site-table">
         <thead>
           <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
+            <th>{t("product")}</th>
+            <th>{t("price")}</th>
+            <th>{t("quantity")}</th>
+            <th>{t("subtotal")}</th>
           </tr>
         </thead>
         <tbody>
           {arr.map((item) => (
             <tr className="basket-row" key={item.id}>
-              <td className="product-info">
+              <td data-label={t("product")} className="product-info">
                 <div className="img-container">
                   <div
                     className="remove-btn"
@@ -63,12 +61,12 @@ const Basket = () => {
                   >
                     <X size={12} />
                   </div>
-                  <img src={item.image} alt={item.name} />
+                  <img src={item.image} alt={t(item.nameKey)} />
                 </div>
-                <h3>{item.name}</h3>
+                <h3>{t(item.nameKey)}</h3>
               </td>
-              <td>${item.price}</td>
-              <td>
+              <td data-label={t("price")}>${item.price}</td>
+              <td data-label={t("quantity")}>
                 <div className="quantity-control">
                   <span className="qty-num">
                     {item.quantity.toString().padStart(2, "0")}
@@ -87,7 +85,7 @@ const Basket = () => {
                   </div>
                 </div>
               </td>
-              <td>${item.price * item.quantity}</td>
+              <td data-label={t("subtotal")}>${item.price * item.quantity}</td>
             </tr>
           ))}
         </tbody>
@@ -95,38 +93,42 @@ const Basket = () => {
 
       <div className="basket-actions">
         <Link to="/" className="outline-btn">
-          Return To Shop
+          {t("return_to_shop")}
         </Link>
         <button className="outline-btn" onClick={() => navigate("/basket")}>
-          Update Cart
+          {t("update_cart")}
         </button>
       </div>
 
       <div className="basket-footer">
         <div className="coupon-box">
-          <input className="inputid" type="text" placeholder="Coupon Code" />
-          <button className="red-btn">Apply Coupon</button>
+          <input
+            className="inputid"
+            type="text"
+            placeholder={t("coupon_code")}
+          />
+          <button className="red-btn">{t("apply_coupon")}</button>
         </div>
 
         <div className="cart-total-card">
-          <h3>Cart Total</h3>
+          <h3>{t("cart_total")}</h3>
           <div className="total-row">
-            <span>Subtotal:</span>
+            <span>{t("subtotal")}:</span>
             <span>${total}</span>
           </div>
           <div className="total-row">
-            <span>Shipping:</span>
-            <span>Free</span>
+            <span>{t("shipping")}:</span>
+            <span>{t("free")}</span>
           </div>
           <div className="total-row final">
-            <span>Total:</span>
+            <span>{t("total")}:</span>
             <span>${total}</span>
           </div>
           <button
             className="red-btn checkout-btn"
             onClick={() => navigate("/checkout")}
           >
-            Procees to checkout
+            {t("checkout_btn")}
           </button>
         </div>
       </div>

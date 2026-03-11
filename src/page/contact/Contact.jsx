@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { IoCall } from "react-icons/io5";
 import { FaEnvelope } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
 import "./Contact.css";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,7 +50,6 @@ const Contact = () => {
               ".swal2-timer-progress-bar",
             );
             progressBar.style.backgroundColor = "#2ecc71";
-
             let timerInterval = setInterval(() => {
               if (Swal.getTimerLeft() < 1000) {
                 progressBar.style.backgroundColor = "#db4444";
@@ -60,7 +61,7 @@ const Contact = () => {
 
         Toast.fire({
           icon: "success",
-          title: "Successfully sent!",
+          title: t("success_sent"),
         });
       }
     } catch (error) {
@@ -70,18 +71,17 @@ const Contact = () => {
 
   return (
     <div className="container contact-wrap">
-      <helmet>
-        <title>Contact Page</title>
-      </helmet>
+      <title>{t("contact_title")}</title>
+
       <div className="contact-left">
         <div className="contact">
           <div className="contact-title">
             <span>
               <IoCall />
             </span>{" "}
-            Call To Us
+            {t("call_to_us")}
           </div>
-          <h3>We are available 24/7, 7 days a week.</h3>
+          <h3>{t("available_text")}</h3>
           <h3>Phone: +8801611112222</h3>
         </div>
         <div className="contact">
@@ -90,9 +90,9 @@ const Contact = () => {
             <span>
               <FaEnvelope />
             </span>{" "}
-            Write To US
+            {t("write_to_us")}
           </div>
-          <h3>Fill out our form and we will contact you within 24 hours.</h3>
+          <h3>{t("fill_form_text")}</h3>
           <h3>Email: customer@exclusive.com</h3>
         </div>
       </div>
@@ -103,7 +103,7 @@ const Contact = () => {
             <input
               type="text"
               name="name"
-              placeholder="Your name"
+              placeholder={t("your_name")}
               value={formData.name}
               onChange={handleChange}
               required
@@ -111,7 +111,7 @@ const Contact = () => {
             <input
               type="email"
               name="email"
-              placeholder="Your email"
+              placeholder={t("your_email")}
               value={formData.email}
               onChange={handleChange}
               required
@@ -119,7 +119,7 @@ const Contact = () => {
             <input
               type="number"
               name="phone"
-              placeholder="Your Phone *"
+              placeholder={t("your_phone")}
               value={formData.phone}
               onChange={handleChange}
               required
@@ -127,13 +127,13 @@ const Contact = () => {
           </div>
           <textarea
             name="message"
-            placeholder="Your Message"
+            placeholder={t("your_message")}
             value={formData.message}
             onChange={handleChange}
             required
           ></textarea>
           <button type="submit" className="send-btn">
-            Send Message
+            {t("send_message")}
           </button>
         </form>
       </div>

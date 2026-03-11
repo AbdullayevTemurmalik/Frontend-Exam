@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import {
   ShoppingCart,
   Heart,
@@ -18,6 +19,7 @@ import products from "../../mock";
 import "./Header.css";
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const cartItems = useSelector((state) => state.basket.value);
@@ -27,10 +29,18 @@ const Header = () => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState("English");
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+
+  const languages = [
+    { code: "en", label: "English" },
+    { code: "uz", label: "Oʻzbekcha" },
+    { code: "ru", label: "Русский" },
+  ];
+
+  const currentLangLabel =
+    languages.find((l) => l.code === i18n.language)?.label || "English";
 
   useEffect(() => {
     const userStatus = localStorage.getItem("isLoggedIn") === "true";
@@ -58,15 +68,20 @@ const Header = () => {
     navigate("/register");
   };
 
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    setIsLangOpen(false);
+  };
+
   return (
     <header className="site-header">
       <div className="top-bar">
         <div className="container top-bar-content">
           <div className="promo-section">
             <p>
-              Summer Sale - OFF 50%!{" "}
+              {t("summer_sale")} - OFF 50%!{" "}
               <Link to="/shop" className="shop-now">
-                ShopNow
+                {t("shop_now")}
               </Link>
             </p>
           </div>
@@ -75,19 +90,13 @@ const Header = () => {
             onClick={() => setIsLangOpen(!isLangOpen)}
           >
             <div className="selected-lang">
-              {currentLang} <ChevronDown size={16} />
+              {currentLangLabel} <ChevronDown size={16} />
             </div>
             {isLangOpen && (
               <ul className="lang-list">
-                {["English", "Oʻzbekcha", "Русский"].map((lang) => (
-                  <li
-                    key={lang}
-                    onClick={() => {
-                      setCurrentLang(lang);
-                      setIsLangOpen(false);
-                    }}
-                  >
-                    {lang}
+                {languages.map((lang) => (
+                  <li key={lang.code} onClick={() => changeLanguage(lang.code)}>
+                    {lang.label}
                   </li>
                 ))}
               </ul>
@@ -113,17 +122,17 @@ const Header = () => {
           <nav className="header-navigation">
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/">{t("home")}</Link>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact">{t("contact")}</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/about">{t("about")}</Link>
               </li>
               {!isLoggedIn && (
                 <li>
-                  <Link to="/register">Sign Up</Link>
+                  <Link to="/register">{t("signup")}</Link>
                 </li>
               )}
             </ul>
@@ -137,17 +146,17 @@ const Header = () => {
             </div>
             <ul className="side-menu-links">
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/">{t("home")}</Link>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact">{t("contact")}</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/about">{t("about")}</Link>
               </li>
               {!isLoggedIn && (
                 <li>
-                  <Link to="/register">Sign Up</Link>
+                  <Link to="/register">{t("signup")}</Link>
                 </li>
               )}
             </ul>
@@ -163,18 +172,22 @@ const Header = () => {
             <div className="search-wrap desktop-search">
               <input
                 type="text"
-                placeholder="What are you looking for?"
+                placeholder={t("search_placeholder")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
               <Search size={20} />
+              {/* QIDIRUV NATIJALARI QISMI QAYTARILDI */}
               {filteredProducts.length > 0 && (
                 <div className="search-results-dropdown">
                   {filteredProducts.map((product) => (
                     <div
                       key={product.id}
                       className="search-item"
-                      onClick={() => navigate(`/product/${product.id}`)}
+                      onClick={() => {
+                        navigate(`/product/${product.id}`);
+                        setSearchTerm("");
+                      }}
                     >
                       <img src={product.image} alt={product.name} />
                       <div className="search-item-info">
@@ -208,12 +221,6 @@ const Header = () => {
                   <span
                     className="user-btn"
                     onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                    style={{
-                      backgroundColor: isUserMenuOpen
-                        ? "#db4444"
-                        : "transparent",
-                      color: isUserMenuOpen ? "white" : "black",
-                    }}
                   >
                     <User size={24} />
                   </span>
@@ -223,34 +230,28 @@ const Header = () => {
                         to="/account"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        <User size={20} /> Manage Account
+                        <User size={20} /> {t("manage_account")}
                       </Link>
                       <Link
                         to="/orders"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        <ShoppingBag size={20} /> My Order
+                        <ShoppingBag size={20} /> {t("my_order")}
                       </Link>
                       <Link
                         to="/cancellations"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        <XCircle size={20} /> Cancellations
+                        <XCircle size={20} /> {t("cancellations")}
                       </Link>
                       <Link
                         to="/reviews"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        <Star size={20} /> My Reviews
+                        <Star size={20} /> {t("my_reviews")}
                       </Link>
                       <button onClick={handleLogout} className="logout-btn">
-                        <LogOut size={20} /> Logout
-                      </button>
-                      <button
-                        className="close-user-menu"
-                        onClick={() => setIsUserMenuOpen(false)}
-                      >
-                        <X size={20} /> Close Menu
+                        <LogOut size={20} /> {t("logout")}
                       </button>
                     </div>
                   )}

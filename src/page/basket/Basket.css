@@ -95,6 +95,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 80px;
+  gap: 10px;
 }
 
 .outline-btn {
@@ -105,6 +106,7 @@
   cursor: pointer;
   color: black;
   text-decoration: none;
+  text-align: center;
 }
 
 .basket-footer {
@@ -126,14 +128,14 @@
   outline: none;
 }
 
-.inputid{
+.inputid {
   width: 300px;
-  height: 70px;
+  height: 60px;
 }
 
 .red-btn {
- width: 200px;
- height: 60px;
+  width: 200px;
+  height: 60px;
   background: #db4444;
   color: white;
   border: none;
@@ -200,7 +202,71 @@
     width: 100%;
     flex-direction: column;
   }
-  .coupon-box input {
+  .coupon-box input,
+  .inputid {
+    width: 100%;
+  }
+  .red-btn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .basket-page {
+    margin-top: 40px;
+  }
+
+  .site-table thead {
+    display: none;
+  }
+
+  .site-table,
+  .site-table tbody,
+  .basket-row,
+  .basket-row td {
+    display: block;
+    width: 100%;
+  }
+
+  .site-table {
+    border-spacing: 0;
+  }
+
+  .basket-row {
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .basket-row td {
+    padding: 15px;
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .basket-row td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #000;
+  }
+
+  .product-info {
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .basket-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .outline-btn {
+    padding: 12px 20px;
     width: 100%;
   }
 }

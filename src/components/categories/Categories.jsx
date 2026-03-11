@@ -1,5 +1,6 @@
 import "./Categories.css";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Smartphone,
   Monitor,
@@ -10,35 +11,36 @@ import {
 } from "lucide-react";
 
 const Categories = () => {
-  const [activeCategory, setActiveCategory] = useState("Camera");
+  const { t } = useTranslation();
+  const [activeCategory, setActiveCategory] = useState("cat_camera");
 
   const categories = [
-    { name: "Phones", icon: <Smartphone size={40} strokeWidth={1.5} /> },
-    { name: "Computers", icon: <Monitor size={40} strokeWidth={1.5} /> },
-    { name: "SmartWatch", icon: <Watch size={40} strokeWidth={1.5} /> },
-    { name: "Camera", icon: <Camera size={40} strokeWidth={1.5} /> },
-    { name: "HeadPhones", icon: <Headphones size={40} strokeWidth={1.5} /> },
-    { name: "Gaming", icon: <Gamepad2 size={40} strokeWidth={1.5} /> },
+    { key: "cat_phones", icon: <Smartphone size={40} strokeWidth={1.5} /> },
+    { key: "cat_computers", icon: <Monitor size={40} strokeWidth={1.5} /> },
+    { key: "cat_smartwatch", icon: <Watch size={40} strokeWidth={1.5} /> },
+    { key: "cat_camera", icon: <Camera size={40} strokeWidth={1.5} /> },
+    { key: "cat_headphones", icon: <Headphones size={40} strokeWidth={1.5} /> },
+    { key: "cat_gaming", icon: <Gamepad2 size={40} strokeWidth={1.5} /> },
   ];
 
   return (
     <div className="container categories-section">
       <div className="section-title">
         <span className="red-rectangle"></span>
-        <p>Categories</p>
+        <p>{t("categories")}</p>
       </div>
       <div className="browse-header">
-        <h3>Browse By Category</h3>
+        <h3>{t("browse_category")}</h3>
       </div>
       <div className="categories-grid">
         {categories.map((item, index) => (
           <div
             key={index}
-            className={`category-box ${activeCategory === item.name ? "active" : ""}`}
-            onClick={() => setActiveCategory(item.name)}
+            className={`category-box ${activeCategory === item.key ? "active" : ""}`}
+            onClick={() => setActiveCategory(item.key)}
           >
             <span className="category-icon">{item.icon}</span>
-            <p>{item.name}</p>
+            <p>{t(item.key)}</p>
           </div>
         ))}
       </div>
