@@ -8,9 +8,7 @@ import Speaker from "../../components/speaker/Speaker";
 const Home = () => {
   return (
     <main>
-      <helmet>
-        <title>Home Page</title>
-      </helmet>
+      <title>Home Page</title>
       <Hero />
       <Discount />
       <Categories />
