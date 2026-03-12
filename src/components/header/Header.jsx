@@ -22,8 +22,9 @@ const Header = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
-  const cartItems = useSelector((state) => state.basket.value);
-  const wishlistItems = useSelector((state) => state.like.value);
+
+  const cartItems = useSelector((state) => state.basket?.value || []);
+  const wishlistItems = useSelector((state) => state.like?.value || []);
 
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -54,12 +55,13 @@ const Header = () => {
     if (searchTerm.trim() === "") {
       setFilteredProducts([]);
     } else {
-      const results = products.filter((p) =>
-        p.name.toLowerCase().includes(searchTerm.toLowerCase()),
-      );
-      setFilteredProducts(results);
+      const results = products.filter((p) => {
+        const translatedName = t(p.nameKey).toLowerCase();
+        return translatedName.includes(searchTerm.toLowerCase());
+      });
+      setFilteredProducts(results.slice(0, 5));
     }
-  }, [searchTerm]);
+  }, [searchTerm, t]);
 
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
@@ -170,34 +172,42 @@ const Header = () => {
 
           <div className="header-action-wrap">
             <div className="search-wrap desktop-search">
-              <input
-                type="text"
-                placeholder={t("search_placeholder")}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <Search size={20} />
-              {/* QIDIRUV NATIJALARI QISMI QAYTARILDI */}
-              {filteredProducts.length > 0 && (
+              <div className="search-input-field">
+                <input
+                  type="text"
+                  placeholder={t("search_placeholder")}
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <Search size={20} />
+              </div>
+
+              {searchTerm && (
                 <div className="search-results-dropdown">
-                  {filteredProducts.map((product) => (
-                    <div
-                      key={product.id}
-                      className="search-item"
-                      onClick={() => {
-                        navigate(`/product/${product.id}`);
-                        setSearchTerm("");
-                      }}
-                    >
-                      <img src={product.image} alt={product.name} />
-                      <div className="search-item-info">
-                        <span className="search-item-name">{product.name}</span>
-                        <span className="search-item-price">
-                          ${product.price}
-                        </span>
+                  {filteredProducts.length > 0 ? (
+                    filteredProducts.map((product) => (
+                      <div
+                        key={product.id}
+                        className="search-item"
+                        onClick={() => {
+                          navigate(`/product/${product.id}`);
+                          setSearchTerm("");
+                        }}
+                      >
+                        <img src={product.image} alt={t(product.nameKey)} />
+                        <div className="search-item-info">
+                          <span className="search-item-name">
+                            {t(product.nameKey)}
+                          </span>
+                          <span className="search-item-price">
+                            ${product.price}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))
+                  ) : (
+                    <div className="search-no-result">{t("no_results")}</div>
+                  )}
                 </div>
               )}
             </div>
