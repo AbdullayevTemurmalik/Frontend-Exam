@@ -324,10 +324,13 @@
     justify-content: flex-start;
   }
   .add-to-cart-bar {
-    position: absolute;
+    bottom: -40px;
+    opacity: 0;
+  }
+
+  .card-top:hover .add-to-cart-bar {
     bottom: 0;
     opacity: 1;
-    height: 40px;
   }
   
   .card-top {
