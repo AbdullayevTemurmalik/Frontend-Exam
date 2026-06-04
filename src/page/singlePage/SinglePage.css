@@ -15,7 +15,7 @@
 }
 
 .breadcrumb span {
-  color: #000;
+  color: var(--text-main);
   font-weight: 500;
 }
 

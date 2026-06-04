@@ -260,9 +260,6 @@ const Header = () => {
                       >
                         <Star size={20} /> {t("my_reviews")}
                       </Link>
-                      <button onClick={handleLogout} className="logout-btn">
-                        <LogOut size={20} /> {t("logout")}
-                      </button>
                     </div>
                   )}
                 </div>

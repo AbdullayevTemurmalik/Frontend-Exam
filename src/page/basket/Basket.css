@@ -5,11 +5,11 @@
 
 .breadcrumb {
   margin-bottom: 80px;
-  color: #00000080;
+  color: var(--text-secondary);
 }
 
 .breadcrumb span {
-  color: #000;
+  color: var(--text-main);
 }
 
 .site-table {
@@ -28,7 +28,7 @@
 .basket-row td {
   padding: 24px;
   box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
-  background: #fff;
+  background: var(--header-bg);
 }
 
 .product-info {
@@ -100,11 +100,11 @@
 
 .outline-btn {
   padding: 16px 48px;
-  border: 1px solid #00000080;
-  background: white;
+  border: 1px solid var(--border-color);
+  background: var(--header-bg);
   border-radius: 4px;
   cursor: pointer;
-  color: black;
+  color: var(--text-main);
   text-decoration: none;
   text-align: center;
 }
@@ -118,11 +118,17 @@
 .coupon-box {
   display: flex;
   gap: 16px;
+  align-items: flex-start;
 }
 
 .coupon-box input {
-  padding: 16px 24px;
-  border: 1px solid black;
+  margin: 0;
+  padding: 0 24px;
+  height: 56px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-main);
   border-radius: 4px;
   width: 300px;
   outline: none;
@@ -130,22 +136,28 @@
 
 .inputid {
   width: 300px;
-  height: 60px;
 }
 
 .red-btn {
+  margin: 0;
   width: 200px;
-  height: 60px;
+  height: 56px;
+  box-sizing: border-box;
   background: #db4444;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.red-btn:hover {
+  background: #c53030;
 }
 
 .cart-total-card {
   width: 470px;
-  border: 1.5px solid black;
+  border: 1.5px solid var(--border-color);
   padding: 32px 24px;
   border-radius: 4px;
 }
@@ -154,7 +166,7 @@
   display: flex;
   justify-content: space-between;
   padding: 16px 0;
-  border-bottom: 1px solid #0000004d;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .total-row.final {
@@ -251,7 +263,7 @@
   .basket-row td::before {
     content: attr(data-label);
     font-weight: bold;
-    color: #000;
+    color: var(--text-main);
   }
 
   .product-info {

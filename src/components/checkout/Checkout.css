@@ -9,7 +9,7 @@
 }
 
 .breadcrumb span {
-  color: #000;
+  color: var(--text-main);
 }
 
 .checkout-wrapper {
@@ -46,7 +46,8 @@
 }
 
 .input-field input {
-  background-color: #f5f5f5;
+  background-color: var(--bg-secondary);
+  color: var(--text-main);
   border: none;
   padding: 13px;
   border-radius: 4px;
@@ -61,9 +62,42 @@
 }
 
 .save-info input {
-  width: 20px;
-  height: 20px;
-  accent-color: #db4444;
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.save-info input:checked {
+  background-color: #db4444;
+  border-color: #db4444;
+}
+
+.save-info input:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 8px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.save-info label {
+  color: var(--text-main);
+  font-size: 15px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .order-summary-section {
@@ -91,7 +125,7 @@
 
 .calculation-box hr {
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .calc-row {
@@ -125,7 +159,7 @@
 .radio-label input {
   width: 20px;
   height: 20px;
-  accent-color: black;
+  accent-color: #db4444;
 }
 
 .payment-logos {
@@ -145,8 +179,12 @@
 
 .coupon-area input {
   flex: 1;
-  padding: 13px;
-  border: 1px solid black;
+  height: 56px;
+  box-sizing: border-box;
+  padding: 0 16px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-main);
   border-radius: 4px;
   outline: none;
 }
@@ -201,8 +239,8 @@
   .order-summary-section {
     order: 1;
     width: 100%;
-    padding: 0 20px;
-    background-color: #fcfcfc;
+    margin-bottom: 20px;
+    background-color: var(--bg-secondary);
     padding: 20px;
     border-radius: 8px;
   }

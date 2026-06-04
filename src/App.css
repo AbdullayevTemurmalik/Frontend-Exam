@@ -1,0 +1,19 @@
+.main-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-main);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow-x: hidden;
+}
+
+body.dark-mode .main-wrapper {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.main-wrapper > :nth-child(2) {
+  flex: 1;
+}

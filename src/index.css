@@ -1,3 +1,25 @@
+:root {
+  --bg-main: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-main: #000000;
+  --text-secondary: #7f7f7f;
+  --border-color: #e5e5e5;
+  --header-bg: #ffffff;
+  --topbar-bg: #000000;
+  --topbar-text: #ffffff;
+}
+
+body.dark-mode {
+  --bg-main: #0b0f19;      /* Very dark blue */
+  --bg-secondary: #162032; /* Dark blue/slate for cards */
+  --text-main: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --border-color: #2a3b5c;
+  --header-bg: #162032;    
+  --topbar-bg: #05080f;
+  --topbar-text: #f8fafc;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -8,6 +30,9 @@
 body {
   overflow-x: hidden;
   width: 100%;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 del {
@@ -49,8 +74,9 @@ a {
 .icon {
   width: 32px;
   height: 32px;
-  color: black;
+  color: var(--text-main);
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .container {

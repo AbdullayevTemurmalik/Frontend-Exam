@@ -35,18 +35,21 @@
 }
 
 .card {
-  background-color: white;
+  background-color: var(--header-bg);
   width: 100%;
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 .card-top {
   position: relative;
   height: 250px;
-  background-color: #f5f5f5;
-  border-radius: 4px;
+  background-color: #ffffff;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,7 +94,7 @@
 }
 
 .icon-wrap {
-  background: white;
+  background: var(--bg-main);
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -99,16 +102,18 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color: var(--text-main);
 }
 
 .card-bottom {
-  padding: 15px 0;
+  padding: 15px;
 }
 
 .card-bottom h3 {
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 8px;
+  color: var(--text-main);
 }
 
 .item-price p {

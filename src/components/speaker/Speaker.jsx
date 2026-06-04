@@ -89,11 +89,11 @@ const Speaker = () => {
                       <Heart
                         size={20}
                         fill={isLiked ? "#db4444" : "none"}
-                        color={isLiked ? "#db4444" : "black"}
+                        color={isLiked ? "#db4444" : "currentColor"}
                       />
                     </span>
                     <Link to={`/product/${item.id}`} className="icon-bg">
-                      <Eye size={20} color="black" />
+                      <Eye size={20} color="currentColor" />
                     </Link>
                   </div>
                   <button

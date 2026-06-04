@@ -14,14 +14,35 @@ import Basket from "./page/basket/Basket";
 import Contact from "./page/contact/Contact";
 import Checkout from "./components/checkout/Checkout";
 import { HelmetProvider } from "react-helmet-async";
-HelmetProvider;
+import MyAccount from "./page/account/MyAccount";
+
 export const sendState = createContext();
+export const ThemeContext = createContext();
 
 function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const [state, setState] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
   const data = useSelector((item) => item.info.value);
+
+  const toggleTheme = () => {
+    setIsDarkTheme((prev) => {
+      const newTheme = !prev;
+      localStorage.setItem("theme", newTheme ? "dark" : "light");
+      return newTheme;
+    });
+  };
+
+  useEffect(() => {
+    if (isDarkTheme) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [isDarkTheme]);
 
   useEffect(() => {
     const showRegistration = () => {
@@ -43,23 +64,28 @@ function App() {
 
   return (
     <>
-    <HelmetProvider>
-    </HelmetProvider>
-      <sendState.Provider value={{ state, setState }}>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Registration />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/like" element={<Heart />} />
-          <Route path="/product/:id" element={<SinglePage />} />
-          <Route path="/basket" element={<Basket />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </sendState.Provider>
+      <HelmetProvider>
+        <ThemeContext.Provider value={{ isDarkTheme, toggleTheme }}>
+          <sendState.Provider value={{ state, setState }}>
+            <div className="main-wrapper">
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/register" element={<Registration />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/like" element={<Heart />} />
+                <Route path="/product/:id" element={<SinglePage />} />
+                <Route path="/basket" element={<Basket />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/account" element={<MyAccount />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <Footer />
+            </div>
+          </sendState.Provider>
+        </ThemeContext.Provider>
+      </HelmetProvider>
     </>
   );
 }

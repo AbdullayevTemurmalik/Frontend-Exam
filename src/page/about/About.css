@@ -69,14 +69,14 @@
   color: white;
 }
 .outer span {
-  color: black;
+  color: var(--text-main);
 }
 .active .outer {
   background-color: white;
 }
 .non-active {
   border: 1px solid #0000004d;
-  color: black;
+  color: var(--text-main);
 }
 .non-active .outer {
   background-color: black;

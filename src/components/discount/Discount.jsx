@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Discount.css";
 import products from "../../mock";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Heart, Eye, ArrowLeft, ArrowRight, Star } from "lucide-react";
@@ -111,7 +111,8 @@ const Discount = () => {
             s.navigation.init();
             s.navigation.update();
           }}
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
           slidesPerView={4}
           spaceBetween={30}
           loop={true}
@@ -141,11 +142,11 @@ const Discount = () => {
                         <Heart
                           size={20}
                           fill={isLiked ? "#db4444" : "none"}
-                          color={isLiked ? "#db4444" : "black"}
+                          color={isLiked ? "#db4444" : "currentColor"}
                         />
                       </span>
                       <Link to={`/product/${item.id}`} className="icon-bg">
-                        <Eye size={20} color="black" />
+                        <Eye size={20} color="currentColor" />
                       </Link>
                     </div>
                     <img src={item.image} alt={t(item.nameKey)} />
