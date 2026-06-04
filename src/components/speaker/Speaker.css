@@ -272,14 +272,45 @@
   .speaker-left {
     align-items: center;
   }
+  
+  .new-arrival-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  .ps5-item {
+    grid-column: 1 / 3;
+    height: 450px;
+  }
+  .woman-item {
+    grid-column: 1 / 3;
+    height: 450px;
+  }
+  .speakers-item, .perfume-item {
+    grid-column: span 1;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .speaker-left h2 {
+    font-size: 32px;
+  }
+  .time-wrap {
+    gap: 12px;
+  }
+  .time {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .section-title {
-    justify-content: center;
+    justify-content: flex-start;
   }
   .explore-header h2 {
-    text-align: center;
+    text-align: left;
+    font-size: 28px;
   }
   .explore-grid {
     grid-template-columns: 1fr;
@@ -287,13 +318,53 @@
   }
   .card {
     max-width: 320px;
-    text-align: center;
+    text-align: left;
   }
   .price-row {
-    justify-content: center;
+    justify-content: flex-start;
   }
   .add-to-cart-bar {
     bottom: 0;
     opacity: 1;
+  }
+
+  .new-arrival-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .ps5-item, .woman-item, .speakers-item, .perfume-item {
+    grid-column: 1 / 2;
+    height: 350px;
+  }
+  .grid-content h3 {
+    font-size: 20px;
+  }
+  .grid-content p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .speaker-wrap {
+    padding: 30px 20px;
+  }
+  .speaker-left h2 {
+    font-size: 24px;
+  }
+  .new-arrival-grid {
+    gap: 15px;
+  }
+  .ps5-item, .woman-item, .speakers-item, .perfume-item {
+    height: 300px;
+  }
+  .grid-content {
+    bottom: 15px;
+    left: 15px;
+  }
+  .grid-content h3 {
+    font-size: 18px;
+  }
+  .grid-content a {
+    font-size: 14px;
   }
 }
