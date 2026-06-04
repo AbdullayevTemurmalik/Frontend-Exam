@@ -324,8 +324,20 @@
     justify-content: flex-start;
   }
   .add-to-cart-bar {
+    position: absolute;
     bottom: 0;
     opacity: 1;
+    height: 40px;
+  }
+  
+  .card-top {
+    height: auto;
+    padding: 20px 0;
+  }
+  
+  .product-image {
+    max-width: 150px;
+    margin-bottom: 30px;
   }
 
   .new-arrival-grid {
